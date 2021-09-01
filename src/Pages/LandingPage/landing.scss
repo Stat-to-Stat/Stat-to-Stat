@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
+.landing-page-container{
+    width: 100vw;
+    min-height: 100vh;
+    background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34.38%, #2C2C30 61.98%, #1A1A1D 100%);
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    .Landing-Page-Title{
+        width: 100%;
+        text-align: center;
+        margin: 1rem 0 1rem 0;
+        font-size: 3rem;
+        color: hsl(47, 100%, 50%);
+        font-family: "Viga", Times, serif;
+    }
+    .landing-page-sports-container{
+        width: 100%;
+        height: 100%;
+        flex: 1 1 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        place-items: center;
+        .landing-page-sport-logo{
+            margin: 1rem;
+            width: 110px;
+            height: 110px;
+            padding: 5px;
+            border-radius: 5px;
+            display: grid;
+            place-items: center;
+            transition: .5s;
+            &:hover{
+                img{max-height: 100%;}
+            }
+            img{
+                max-width: 90%;
+                max-height: 80%;
+                margin: 0;
+                transition: .5s;
+            }
+        }
+    }
+}

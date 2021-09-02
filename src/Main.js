@@ -1,10 +1,10 @@
-import {LandingPage} from './Pages';
 import "./main-styles.css"
+import Routes from './Routes';
 
 function Main() {
   return (
     <div className="Main">
-      <LandingPage />
+      <Routes />
     </div>
   );
 }

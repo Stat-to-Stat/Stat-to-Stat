@@ -17,8 +17,6 @@ function SingleSport({backgroundColor, link, img}) {
         history.push(link)
     }
 
-    console.log(history)
-
     return (
         <div onClick={handleClick} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className="landing-page-sport-logo">
             <img src={`./SportLogos/${img}.png`} alt={img} />

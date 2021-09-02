@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import {LandingPage} from './Pages';
+import {LandingPage, NHLHomePage} from './Pages';
 
 
 export default function Routes() {
@@ -16,7 +16,7 @@ export default function Routes() {
             <LandingPage />
             </Route>
             <Route exact path="/NHL">
-            <div>NHL PAGE</div>
+            <NHLHomePage />
             </Route>
         </Switch>
     </Router>    

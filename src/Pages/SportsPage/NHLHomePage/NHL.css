@@ -1,0 +1,68 @@
+.nhl-main-container {
+  width: 100vw;
+  min-height: 100vh;
+  background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34.38%, #2C2C30 61.98%, #1A1A1D 100%);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.nhl-main-container .nhl-title {
+  width: 100%;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  font-size: 3rem;
+  color: #ffc800;
+  font-family: "Viga", Times, serif;
+}
+
+.nhl-main-container .nhl-compare-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+}
+
+.nhl-main-container .nhl-compare-container .nhl-compare-link-container {
+  background-color: red;
+}
+
+.nhl-main-container .nhl-compare-container .nhl-compare-link-container .nhl-link-container {
+  padding: 2rem 10rem 2rem 10rem;
+  margin: 1rem;
+  background-color: rgba(0, 0, 255, 0.249);
+}
+
+.nhl-main-container .nhl-compare-container .nhl-compare-link-container .nhl-link-container a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.nhl-main-container .nhl-compare-container .nhl-compare-link-container .nhl-link-container a div {
+  font-size: 1rem;
+  color: #ffc800;
+  font-family: "Viga", Times, serif;
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+/*# sourceMappingURL=NHL.css.map */

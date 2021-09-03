@@ -9,12 +9,20 @@ export default function Compare() {
     return (
         <div className="nhl-compare-container">
             <div className="nhl-compare-link-container">
-                <div className="nhl-link-container">
-                <Link to="/NHL/teams"><div>Team To Team</div></Link>
+            <Link to="/NHL/teams">
+                <div className="compare-link">
+                    <div>
+                        Team To Team
+                    </div>
                 </div>
-                <div className="nhl-link-container">
-                <Link to="/NHL/players"><div>Player To Player</div></Link>
+            </Link>
+            <Link to="/NHL/players">
+                <div className="compare-link">
+                    <div>
+                        Player To Player
+                    </div>
                 </div>
+            </Link>
             </div>
         </div>
     )

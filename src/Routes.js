@@ -7,6 +7,8 @@ import {
 
 import {LandingPage, NHLHomePage} from './Pages';
 
+import {NHLPlayerToPlayer} from './Pages/PlayerToPlayer'
+
 
 export default function Routes() {
     return (
@@ -17,6 +19,9 @@ export default function Routes() {
             </Route>
             <Route exact path="/NHL">
             <NHLHomePage />
+            </Route>
+            <Route exact path="/NHL/players">
+            <NHLPlayerToPlayer />
             </Route>
         </Switch>
     </Router>    

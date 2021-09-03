@@ -10,11 +10,14 @@ export const nhlPlayerRetrieval = () => {
       for (const team of teams) {
         let players = team.roster.roster;
         for (const player of players) {
-          playerArr.push(player.person.fullName);
+          playerArr.push({
+            id: player.person.id,
+            name: player.person.fullName,
+          });
         }
       }
     });
-  console.log(playerArr);
+  return playerArr;
 };
 
 // All Teams
@@ -44,7 +47,7 @@ export const singleNhlTeamRetrieval = (id) => {
 export const singleNhlPlayerRetrieval = (id) => {
   let rosterArr = [];
   axios
-    .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`)
+    .get(`https://statsapi.web.nhl.com/api/v1/people/${id}?expand=team.roster`)
     .then((res) => {
       const teamRoster = res.data.teams.roster;
       for (const players of teamRoster) {
@@ -57,13 +60,22 @@ export const singleNhlPlayerRetrieval = (id) => {
 // name, jersey number, position,
 
 // Single Player Stats
-export const singlePlayerStatRetrieval = (id, season = 20202021) => {
-  axios
+export const singlePlayerStatRetrieval = async (id, season = 20202021) => {
+  let playerStats = null;
+  let playerInfo = null;
+  await axios
     .get(
       `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=statsSingleSeason&season=${season}`
     )
     .then((res) => {
-      console.log(res);
+      playerStats = res;
     });
+  await axios
+    .get(`https://statsapi.web.nhl.com/api/v1/people/${id}?expand=team.roster`)
+    .then((res) => {
+      playerInfo = res;
+    });
+  console.log(playerStats, playerInfo);
+  return { playerStats, playerInfo };
 };
 // pretty much every stat that is listed. If they made the postseason, show their postseason stats as well

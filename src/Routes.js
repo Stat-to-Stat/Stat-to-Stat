@@ -5,7 +5,9 @@ import {
   Route,
 } from "react-router-dom";
 
-import {LandingPage} from './Pages';
+import {LandingPage, NHLHomePage} from './Pages';
+
+import {NHLPlayerToPlayer} from './Pages/PlayerToPlayer'
 
 
 export default function Routes() {
@@ -16,7 +18,10 @@ export default function Routes() {
             <LandingPage />
             </Route>
             <Route exact path="/NHL">
-            <div>NHL PAGE</div>
+            <NHLHomePage />
+            </Route>
+            <Route exact path="/NHL/players">
+            <NHLPlayerToPlayer />
             </Route>
         </Switch>
     </Router>    

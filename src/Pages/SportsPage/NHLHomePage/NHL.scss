@@ -1,0 +1,48 @@
+.nhl-main-container{
+    width: 100%;
+    min-height: 100%;
+    background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34.38%, #2C2C30 61.98%, #1A1A1D 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    overflow: hidden;
+    .nhl-title{
+        width: 100%;
+        text-align: center;
+        margin: 1rem 0 1rem 0;
+        font-size: 3rem;
+        color: hsl(47, 100%, 50%);
+        font-family: "Viga", Times, serif;
+    }
+    .nhl-compare-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem;
+        .nhl-compare-link-container{
+            width: 75%;
+            a{
+                text-decoration: none;
+            }
+            .compare-link{
+                padding: 1rem 0 1rem 0;
+                border-radius: 25px;
+                margin: 1rem;
+                background-color:hsl(47, 100%, 50%);
+                display: grid;
+                place-items: center;
+                div{
+                    font-size: 1rem;
+                    color: hsl(0, 0%, 0%);
+                    font-family: "Viga", Times, serif;
+                    width: 100%;
+                    text-align: center;
+                    text-decoration: none;
+                    }
+            }
+        }
+    }
+}

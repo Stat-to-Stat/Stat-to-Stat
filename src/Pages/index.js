@@ -1,3 +1,3 @@
 import LandingPage from "./LandingPage";
-
-export {LandingPage}
+import {NHLHomePage} from "./SportsPage"
+export {LandingPage, NHLHomePage}

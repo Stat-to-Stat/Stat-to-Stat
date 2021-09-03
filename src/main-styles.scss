@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
 body{
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+.Main{
+    overflow: hidden;
+    max-width: 100vw;
+    height: 100vh;
+}
+
+.root{
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }

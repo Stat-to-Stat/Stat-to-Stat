@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// All Players
 export const nhlPlayerRetrieval = () => {
   let playerArr = [];
   axios
@@ -16,6 +17,7 @@ export const nhlPlayerRetrieval = () => {
   console.log(playerArr);
 };
 
+// All Teams
 export const nhlTeamRetrieval = () => {
   let teamArr = [];
   axios.get('https://statsapi.web.nhl.com/api/v1/teams').then((res) => {
@@ -28,6 +30,7 @@ export const nhlTeamRetrieval = () => {
   console.log(teamArr);
 };
 
+// Single Team
 export const singleNhlTeamRetrieval = (id) => {
   axios
     .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?=team.stats`)
@@ -37,6 +40,7 @@ export const singleNhlTeamRetrieval = (id) => {
 };
 // name, venue[name], venue[city], division[name], first year of play, conference[name], officialSiteUrl
 
+// Single Player
 export const singleNhlPlayerRetrieval = (id) => {
   let rosterArr = [];
   axios
@@ -52,6 +56,7 @@ export const singleNhlPlayerRetrieval = (id) => {
 };
 // name, jersey number, position,
 
+// Single Player Stats
 export const singlePlayerStatRetrieval = (id, season = 20202021) => {
   axios
     .get(

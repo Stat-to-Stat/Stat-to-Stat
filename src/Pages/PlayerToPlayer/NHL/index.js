@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import parse from 'autosuggest-highlight/parse';
@@ -10,12 +10,21 @@ import {
 
 function NHLPlayerToPlayer() {
   const [currentPlayer, setCurrentPlayer] = useState('');
+//   const [sortedPlayers, setSortedPlayers] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const playerList = nhlPlayerRetrieval();
+  
+//   useEffect(() => {
+//         const curlist = nhlPlayerRetrieval()
+//         setTimeout(() => {setSortedPlayers(curlist.sort())}, 2000)
+      
+// }, [])
 
   const selectedPlayer = (event, value) => {
     if (!!value) {
-      setCurrentPlayer(value.name);
-      return singlePlayerStatRetrieval(value.id);
+      setIsOpen(false)
+      setCurrentPlayer(value);
+    //   return singlePlayerStatRetrieval(value.id);
     } else setCurrentPlayer('');
   };
 
@@ -24,11 +33,21 @@ function NHLPlayerToPlayer() {
       <Autocomplete
         id='highlights-demo'
         style={{ width: 300 }}
+        open={isOpen}
+        noOptionsText={"No Players Found"}
+        onInputChange={(e,v) => {
+            if(v.length){
+            setIsOpen(true)
+        } else{
+            setIsOpen(false)
+        }
+        }}
         onChange={selectedPlayer}
-        options={playerList.sort(
-          (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
-        )}
+        popupIcon={null}
+        autoSelect={true}
+        options={playerList}
         getOptionLabel={(option) => option.name}
+        getOptionSelected={(option, value) => option.id === value.id}
         renderInput={(params) => (
           <TextField
             {...params}

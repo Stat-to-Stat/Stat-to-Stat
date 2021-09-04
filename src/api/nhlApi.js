@@ -75,7 +75,6 @@ export const singlePlayerStatRetrieval = async (id, season = 20202021) => {
     .then((res) => {
       playerInfo = res;
     });
-  console.log(playerStats, playerInfo);
   return { playerStats, playerInfo };
 };
 // pretty much every stat that is listed. If they made the postseason, show their postseason stats as well

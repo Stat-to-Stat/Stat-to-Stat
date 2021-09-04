@@ -30,7 +30,7 @@ export const nhlTeamRetrieval = () => {
       teamArr.push(singleTeam);
     }
   });
-  console.log(teamArr);
+  return(teamArr);
 };
 
 // Single Team

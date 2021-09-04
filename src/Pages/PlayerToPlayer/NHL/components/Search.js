@@ -8,11 +8,9 @@ import {
   singlePlayerStatRetrieval,
 } from '../../../../api/nhlApi';
 
-function Search() {
-    const [currentPlayer, setCurrentPlayer] = useState('');
+function Search({playerList, setCurrentPlayer}) {
     //   const [sortedPlayers, setSortedPlayers] = useState([]);
       const [isOpen, setIsOpen] = useState(false);
-      const playerList = nhlPlayerRetrieval();
       
     //   useEffect(() => {
     //         const curlist = nhlPlayerRetrieval()
@@ -24,7 +22,6 @@ function Search() {
         if (!!value) {
           setIsOpen(false)
           setCurrentPlayer(value);
-        //   return singlePlayerStatRetrieval(value.id);
         } else setCurrentPlayer('');
       };
     

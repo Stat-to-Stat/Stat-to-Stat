@@ -26,7 +26,7 @@ export const nhlTeamRetrieval = () => {
   axios.get('https://statsapi.web.nhl.com/api/v1/teams').then((res) => {
     const teams = res.data.teams;
     for (const team of teams) {
-      let singleTeam = team.name;
+      let singleTeam = team;
       teamArr.push(singleTeam);
     }
   });

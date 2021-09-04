@@ -12,29 +12,28 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function Filter({teamList}) {
+function Filter({teamList, setTeam, team}) {
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
 
     const handleChange = (event) => {
-      setAge(event.target.value);
+        setTeam(event.target.value);
     };
-    teamList.map(team => (console.log(team)))
+
     return (
         <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Team</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={age}
+          value={team}
           onChange={handleChange}
-          label="Age"
+          label="team"
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {teamList.map(team => {
-              return <MenuItem value={team}>{team}</MenuItem>
+          {teamList.map((team, i) => {
+              return <MenuItem key={i} value={team.id}><em>{team.name}</em></MenuItem>
           })}
         </Select>
       </FormControl>

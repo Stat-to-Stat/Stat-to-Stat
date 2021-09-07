@@ -26,7 +26,7 @@ export const nhlTeamRetrieval = () => {
   axios.get('https://statsapi.web.nhl.com/api/v1/teams').then((res) => {
     const teams = res.data.teams;
     for (const team of teams) {
-      let singleTeam = team.name;
+      let singleTeam = team;
       teamArr.push(singleTeam);
     }
   });
@@ -40,6 +40,23 @@ export const singleNhlTeamRetrieval = (id) => {
     .then((res) => {
       console.log(res);
     });
+};
+// Single Team Roaster
+export const singleNhlTeamRoasterRetrieval = (id) => {
+  let rosterArr = [];
+  axios
+    .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`)
+    .then((res) => {
+      const teamRoster = res.data.teams[0].roster.roster
+      for (const player of teamRoster) {
+        rosterArr.push(
+          {
+            name: player.person.fullName, 
+            id: player.person.id
+          })
+      }
+    });
+    return(rosterArr);
 };
 // name, venue[name], venue[city], division[name], first year of play, conference[name], officialSiteUrl
 

@@ -27,7 +27,13 @@ function NHLPlayerToPlayer() {
 
   useEffect(() => {
     const setArrays = async () => {
-      setTeamList(await nhlTeamRetrieval());
+        const allTeams = await nhlTeamRetrieval()
+        setTimeout(() => {allTeams.sort(function(a, b){
+            if(a.name < b.name) { return -1; }
+            if(a.name > b.name) { return 1; }
+            return 0;
+            })}, 500)
+      setTeamList(allTeams)
       const playerList = await nhlPlayerRetrieval();
       setAllPlayers(playerList);
       setFilteredPlayers(playerList);

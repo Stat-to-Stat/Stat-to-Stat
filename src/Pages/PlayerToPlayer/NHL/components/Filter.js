@@ -12,12 +12,19 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function Filter({teamList, setTeam, team}) {
+function Filter({allPlayers, setPlayers, teamList, setTeam, team, singleNhlTeamRoasterRetrieval}) {
     const classes = useStyles();
 
-    const handleChange = (event) => {
+    const handleChange = async (event) => {
+      if(!!event.target.value){
         setTeam(event.target.value);
-    };
+        const teamsRoaster = (await singleNhlTeamRoasterRetrieval(1))
+        setPlayers(teamsRoaster)
+      } else {
+        setTeam("");
+        setPlayers(allPlayers)
+      }
+      };
 
     return (
         <FormControl variant="outlined" className={classes.formControl}>
@@ -33,7 +40,7 @@ function Filter({teamList, setTeam, team}) {
             <em>None</em>
           </MenuItem>
           {teamList.map((team, i) => {
-              return <MenuItem key={i} value={team.id}><em>{team.name}</em></MenuItem>
+              return <MenuItem key={i} value={team}><em>{team.name}</em></MenuItem>
           })}
         </Select>
       </FormControl>

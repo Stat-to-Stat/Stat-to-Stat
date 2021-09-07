@@ -30,6 +30,14 @@ function Search({playerList, setCurrentPlayer}) {
           <Autocomplete
             id='highlights-demo'
             style={{ width: 300 }}
+            onOpen={() => {
+              if(playerList.length < 60){
+                setIsOpen(true);
+              }
+            }}
+            onClose={() => {
+              setIsOpen(false);
+            }}
             open={isOpen}
             noOptionsText={"No Players Found"}
             onInputChange={(e,v) => {

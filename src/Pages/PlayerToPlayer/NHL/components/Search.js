@@ -8,7 +8,7 @@ import {
   singlePlayerStatRetrieval,
 } from '../../../../api/nhlApi';
 
-function Search({playerList, setCurrentPlayer}) {
+function Search({currentTeam, playerList, setCurrentPlayer}) {
     //   const [sortedPlayers, setSortedPlayers] = useState([]);
       const [isOpen, setIsOpen] = useState(false);
       
@@ -24,7 +24,6 @@ function Search({playerList, setCurrentPlayer}) {
           setCurrentPlayer(value);
         } else setCurrentPlayer('');
       };
-    
       return (
         <div>
           <Autocomplete
@@ -48,8 +47,8 @@ function Search({playerList, setCurrentPlayer}) {
             }
             }}
             onChange={selectedPlayer}
-            popupIcon={null}
             autoSelect={true}
+            forcePopupIcon={currentTeam.name ? true : false}
             options={playerList}
             getOptionLabel={(option) => option.name}
             getOptionSelected={(option, value) => option.id === value.id}

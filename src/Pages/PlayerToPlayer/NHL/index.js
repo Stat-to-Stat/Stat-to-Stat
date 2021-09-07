@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Search from "./components/Search"
-import Filter from "./components/Filter"
+import Search from './components/Search';
+import Filter from './components/Filter';
 import {
     nhlPlayerRetrieval,
     singlePlayerStatRetrieval,
@@ -11,6 +11,7 @@ import {
 function NHLPlayerToPlayer() {
   const [currentPlayerOne, setCurrentPlayerOne] = useState('');
   const [currentPlayerTwo, setCurrentPlayerTwo] = useState('');
+
   const [allPlayers, setAllPlayers] = useState([]);
 
   const [filteredPlayers, setFilteredPlayers] = useState([])
@@ -61,8 +62,9 @@ if(isLoaded){
         setCurrentPlayer={setCurrentPlayerTwo} 
         playerList={filteredPlayers}
         teamList={teamList}
-        />
+      />
     </div>
+
       )
     } else{
         return(
@@ -74,4 +76,3 @@ if(isLoaded){
     }
     
     export default NHLPlayerToPlayer;
-    

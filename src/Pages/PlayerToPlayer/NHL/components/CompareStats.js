@@ -3,7 +3,7 @@ import { singlePlayerStatRetrieval } from '../../../../api/nhlApi';
 import PositionPlayers from './PositionPlayers';
 import Goalies from './Goalies';
 
-export default function Stats({ id }) {
+export default function CompareStats({ id }) {
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(false);
   useEffect(() => {

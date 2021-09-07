@@ -22,7 +22,10 @@ export default function Goalies({ id }) {
             Position: {stats.playerInfo.data.people[0].primaryPosition.name}
           </h3>
           <h3>Team: {stats.playerInfo.data.people[0].currentTeam.name}</h3>
-          <h3>Age: {stats.playerInfo.data.people[0].currentAge}</h3>
+          <h3>
+            Date of Birth: {stats.playerInfo.data.people[0].birthDate} (
+            {stats.playerInfo.data.people[0].currentAge} years old)
+          </h3>
           <h3>
             Birthplace: {stats.playerInfo.data.people[0].birthCity},{' '}
             {stats.playerInfo.data.people[0].birthCountry}

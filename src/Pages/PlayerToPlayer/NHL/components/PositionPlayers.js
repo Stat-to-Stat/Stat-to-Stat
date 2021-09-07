@@ -6,7 +6,7 @@ export default function PositionPlayers({ id }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const setArrays = async () => {
-      setStats(await singlePlayerStatRetrieval(8475151));
+      setStats(await singlePlayerStatRetrieval(id));
       setLoading(true);
     };
     setArrays();
@@ -23,7 +23,10 @@ export default function PositionPlayers({ id }) {
             Position: {stats.playerInfo.data.people[0].primaryPosition.name}
           </h3>
           <h3>Team: {stats.playerInfo.data.people[0].currentTeam.name}</h3>
-          <h3>Age: {stats.playerInfo.data.people[0].currentAge}</h3>
+          <h3>
+            Date of Birth: {stats.playerInfo.data.people[0].birthDate} (
+            {stats.playerInfo.data.people[0].currentAge} years old)
+          </h3>
           <h3>
             Birthplace: {stats.playerInfo.data.people[0].birthCity},{' '}
             {stats.playerInfo.data.people[0].birthStateProvince}
@@ -45,6 +48,12 @@ export default function PositionPlayers({ id }) {
           <h3>
             Assists: {stats.playerStats.data.stats[0].splits[0].stat.assists}
           </h3>
+          <h3>Shots: {stats.playerStats.data.stats[0].splits[0].stat.shots}</h3>
+          <h3>Hits: {stats.playerStats.data.stats[0].splits[0].stat.hits}</h3>
+          <h3>
+            Blocked Shots:{' '}
+            {stats.playerStats.data.stats[0].splits[0].stat.blocked}
+          </h3>
           <h3>
             Penalty Minutes:{' '}
             {stats.playerStats.data.stats[0].splits[0].stat.assists}
@@ -65,8 +74,6 @@ export default function PositionPlayers({ id }) {
             Time On Ice Per Game:{' '}
             {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
           </h3>
-          <h3>Shots: {stats.playerStats.data.stats[0].splits[0].stat.shots}</h3>
-          <h3>Hits: {stats.playerStats.data.stats[0].splits[0].stat.hits}</h3>
         </div>
       </div>
     );

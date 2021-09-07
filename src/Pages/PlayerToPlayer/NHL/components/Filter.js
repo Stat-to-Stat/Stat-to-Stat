@@ -18,7 +18,7 @@ function Filter({allPlayers, setPlayers, teamList, setTeam, team, singleNhlTeamR
     const handleChange = async (event) => {
       if(!!event.target.value){
         setTeam(event.target.value);
-        const teamsRoaster = (await singleNhlTeamRoasterRetrieval(1))
+        const teamsRoaster = (await singleNhlTeamRoasterRetrieval(event.target.value.id))
         setPlayers(teamsRoaster)
       } else {
         setTeam("");

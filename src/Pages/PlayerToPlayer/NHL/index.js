@@ -12,7 +12,7 @@ import CompareStats from './components/CompareStats';
 function NHLPlayerToPlayer() {
   const [currentPlayerOne, setCurrentPlayerOne] = useState('');
   const [currentPlayerTwo, setCurrentPlayerTwo] = useState('');
-  console.log(currentPlayerOne);
+
   const [allPlayers, setAllPlayers] = useState([]);
 
   const [filteredPlayers, setFilteredPlayers] = useState([]);
@@ -67,11 +67,13 @@ function NHLPlayerToPlayer() {
           </button>
         )}
         <Search
+          currentTeam={currentTeam}
           setCurrentPlayer={setCurrentPlayerOne}
           playerList={filteredPlayers}
           teamList={teamList}
-        />
+          />
         <Search
+          currentTeam={currentTeam}
           setCurrentPlayer={setCurrentPlayerTwo}
           playerList={filteredPlayers}
           teamList={teamList}

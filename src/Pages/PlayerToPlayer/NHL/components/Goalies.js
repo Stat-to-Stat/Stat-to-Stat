@@ -6,7 +6,7 @@ export default function Goalies({ id }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const setArrays = async () => {
-      setStats(await singlePlayerStatRetrieval(8475151));
+      setStats(await singlePlayerStatRetrieval(id));
       setLoading(true);
     };
     setArrays();

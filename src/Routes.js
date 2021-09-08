@@ -5,7 +5,7 @@ import { LandingPage, NHLHomePage } from './Pages';
 
 import { NHLPlayerToPlayer } from './Pages/PlayerToPlayer';
 
-import CompareStats from './Pages/TeamToTeam/NHL/CompareStats';
+import NHLTeamToTeam from './Pages/TeamToTeam';
 
 export default function Routes() {
   return (
@@ -21,7 +21,7 @@ export default function Routes() {
           <NHLPlayerToPlayer />
         </Route>
         <Route exact path='NHL/teams'>
-          <CompareStats />
+          <NHLTeamToTeam />
         </Route>
       </Switch>
     </Router>

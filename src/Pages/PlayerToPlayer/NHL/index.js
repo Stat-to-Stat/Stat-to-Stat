@@ -5,7 +5,7 @@ import {
   nhlPlayerRetrieval,
   singlePlayerStatRetrieval,
   nhlTeamRetrieval,
-  singleNhlTeamRoasterRetrieval,
+  singleTeamRosterRetrieval,
 } from '../../../api/nhlApi';
 import CompareStats from './components/CompareStats';
 
@@ -27,13 +27,19 @@ function NHLPlayerToPlayer() {
 
   useEffect(() => {
     const setArrays = async () => {
-        const allTeams = await nhlTeamRetrieval()
-        setTimeout(() => {allTeams.sort(function(a, b){
-            if(a.name < b.name) { return -1; }
-            if(a.name > b.name) { return 1; }
-            return 0;
-            })}, 500)
-      setTeamList(allTeams)
+      const allTeams = await nhlTeamRetrieval();
+      setTimeout(() => {
+        allTeams.sort(function (a, b) {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        });
+      }, 500);
+      setTeamList(allTeams);
       const playerList = await nhlPlayerRetrieval();
       setAllPlayers(playerList);
       setFilteredPlayers(playerList);
@@ -56,7 +62,7 @@ function NHLPlayerToPlayer() {
             </button>
             <Filter
               allPlayers={allPlayers}
-              singleNhlTeamRoasterRetrieval={singleNhlTeamRoasterRetrieval}
+              singleTeamRosterRetrieval={singleTeamRosterRetrieval}
               setPlayers={setFilteredPlayers}
               team={currentTeam}
               setTeam={setCurrentTeam}
@@ -77,7 +83,7 @@ function NHLPlayerToPlayer() {
           setCurrentPlayer={setCurrentPlayerOne}
           playerList={filteredPlayers}
           teamList={teamList}
-          />
+        />
         <Search
           currentTeam={currentTeam}
           setCurrentPlayer={setCurrentPlayerTwo}

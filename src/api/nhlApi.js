@@ -41,8 +41,8 @@ export const singleNhlTeamRetrieval = (id) => {
       console.log(res);
     });
 };
-// Single Team Roaster
-export const singleNhlTeamRoasterRetrieval = (id) => {
+// Single Team Roster
+export const singleTeamRosterRetrieval = (id) => {
   let rosterArr = [];
   axios
     .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`)

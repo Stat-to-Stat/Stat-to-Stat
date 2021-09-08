@@ -11,78 +11,81 @@ export default function PositionPlayers({ id }) {
     };
     setArrays();
   }, []);
-  // If player is goalie, displays different stats from regular player (use conditional to determine position status based on API call)
-  // Image api - nhl.bamcontent.com/images/headshots/current/168x168/8474573.jpg
+
   if (loading) {
     try {
-      
       return (
         <div>
-        <div>
-          <h4>Image (placeholder)</h4>
-          <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
-          <h3>
-            Position: {stats.playerInfo.data.people[0].primaryPosition.name}
-          </h3>
-          <h3>Team: {stats.playerInfo.data.people[0].currentTeam.name}</h3>
-          <h3>
-            Date of Birth: {stats.playerInfo.data.people[0].birthDate} (
-            {stats.playerInfo.data.people[0].currentAge} years old)
-          </h3>
-          <h3>
-            Birthplace: {stats.playerInfo.data.people[0].birthCity},{' '}
-            {stats.playerInfo.data.people[0].birthStateProvince}
-          </h3>
-          <h3>Hand: {stats.playerInfo.data.people[0].shootsCatches}</h3>
+          <div>
+            <h4>Image (placeholder)</h4>
+            <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
+            <h3>Height: {stats.playerInfo.data.people[0].height}</h3>
+            <h3>Weight: {stats.playerInfo.data.people[0].weight}lbs</h3>
+            <h3>
+              Position: {stats.playerInfo.data.people[0].primaryPosition.name}
+            </h3>
+            <h3>Team: {stats.playerInfo.data.people[0].currentTeam.name}</h3>
+            <h3>
+              DOB: {stats.playerInfo.data.people[0].birthDate} (
+              {stats.playerInfo.data.people[0].currentAge} years old)
+            </h3>
+            <h3>
+              Birthplace: {stats.playerInfo.data.people[0].birthCity},{' '}
+              {stats.playerInfo.data.people[0].birthStateProvince}
+            </h3>
+            <h3>Hand: {stats.playerInfo.data.people[0].shootsCatches}</h3>
+          </div>
+          <h2>
+            {stats.playerStats.data.stats[0].splits[0].season} Regular Season
+          </h2>
+          <div>
+            <h3>
+              Games Played:{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.games}
+            </h3>
+            <h3>
+              Points: {stats.playerStats.data.stats[0].splits[0].stat.points}
+            </h3>
+            <h3>
+              Goals: {stats.playerStats.data.stats[0].splits[0].stat.goals}
+            </h3>
+            <h3>
+              Assists: {stats.playerStats.data.stats[0].splits[0].stat.assists}
+            </h3>
+            <h3>
+              Shots: {stats.playerStats.data.stats[0].splits[0].stat.shots}
+            </h3>
+            <h3>Hits: {stats.playerStats.data.stats[0].splits[0].stat.hits}</h3>
+            <h3>
+              Blocked Shots:{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.blocked}
+            </h3>
+            <h3>
+              Penalty Minutes:{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.assists}
+            </h3>
+            <h3>
+              PowerPlay Goals:{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.powerPlayGoals}
+            </h3>
+            <h3>
+              PowerPlay Points:{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.powerPlayPoints}
+            </h3>
+            <h3>
+              Plus/Minus (+/-):{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.plusMinus}
+            </h3>
+            <h3>
+              Time On Ice Per Game:{' '}
+              {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
+            </h3>
+          </div>
         </div>
-        <h2>
-          {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-        </h2>
-        <div>
-          <h3>
-            Games Played: {stats.playerStats.data.stats[0].splits[0].stat.games}
-          </h3>
-          <h3>
-            Points: {stats.playerStats.data.stats[0].splits[0].stat.points}
-          </h3>
-          <h3>Goals: {stats.playerStats.data.stats[0].splits[0].stat.goals}</h3>
-          <h3>
-            Assists: {stats.playerStats.data.stats[0].splits[0].stat.assists}
-          </h3>
-          <h3>Shots: {stats.playerStats.data.stats[0].splits[0].stat.shots}</h3>
-          <h3>Hits: {stats.playerStats.data.stats[0].splits[0].stat.hits}</h3>
-          <h3>
-            Blocked Shots:{' '}
-            {stats.playerStats.data.stats[0].splits[0].stat.blocked}
-          </h3>
-          <h3>
-            Penalty Minutes:{' '}
-            {stats.playerStats.data.stats[0].splits[0].stat.assists}
-          </h3>
-          <h3>
-            PowerPlay Goals:{' '}
-            {stats.playerStats.data.stats[0].splits[0].stat.powerPlayGoals}
-          </h3>
-          <h3>
-            PowerPlay Points:{' '}
-            {stats.playerStats.data.stats[0].splits[0].stat.powerPlayPoints}
-          </h3>
-          <h3>
-            Plus/Minus (+/-):{' '}
-            {stats.playerStats.data.stats[0].splits[0].stat.plusMinus}
-          </h3>
-          <h3>
-            Time On Ice Per Game:{' '}
-            {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
-          </h3>
-        </div>
-      </div>
-    );
-  } catch (error) {
-    return (
-      <div>ERROR</div>
-    )
-  }
+      );
+    } catch (error) {
+      return <div>ERROR</div>;
+    }
   } else {
     return <div>Loading</div>;
   }

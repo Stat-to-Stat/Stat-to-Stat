@@ -3,7 +3,6 @@ import Search from './components/Search';
 import Filter from './components/Filter';
 import {
   nhlPlayerRetrieval,
-  singlePlayerStatRetrieval,
   nhlTeamRetrieval,
   singleTeamRosterRetrieval,
 } from '../../../api/nhlApi';

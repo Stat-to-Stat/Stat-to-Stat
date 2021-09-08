@@ -12,6 +12,7 @@ export default function PositionPlayers({ id }) {
     setArrays();
   }, []);
   // If player is goalie, displays different stats from regular player (use conditional to determine position status based on API call)
+  // Image api - nhl.bamcontent.com/images/headshots/current/168x168/8474573.jpg
   if (loading) {
     try {
       

@@ -30,7 +30,7 @@ export const nhlTeamRetrieval = () => {
       teamArr.push(singleTeam);
     }
   });
-  return(teamArr);
+  return teamArr;
 };
 
 // Single Team
@@ -41,22 +41,21 @@ export const singleNhlTeamRetrieval = (id) => {
       console.log(res);
     });
 };
-// Single Team Roaster
-export const singleNhlTeamRoasterRetrieval = (id) => {
+// Single Team Roster
+export const singleTeamRosterRetrieval = (id) => {
   let rosterArr = [];
   axios
     .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`)
     .then((res) => {
-      const teamRoster = res.data.teams[0].roster.roster
+      const teamRoster = res.data.teams[0].roster.roster;
       for (const player of teamRoster) {
-        rosterArr.push(
-          {
-            name: player.person.fullName, 
-            id: player.person.id
-          })
+        rosterArr.push({
+          name: player.person.fullName,
+          id: player.person.id,
+        });
       }
     });
-    return(rosterArr);
+  return rosterArr;
 };
 // name, venue[name], venue[city], division[name], first year of play, conference[name], officialSiteUrl
 
@@ -95,3 +94,6 @@ export const singlePlayerStatRetrieval = async (id, season = 20202021) => {
   return { playerStats, playerInfo };
 };
 // pretty much every stat that is listed. If they made the postseason, show their postseason stats as well
+
+// Player Images
+// nhl.bamcontent.com/images/headshots/current/168x168/8474573.jpg

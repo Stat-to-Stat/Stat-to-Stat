@@ -11,12 +11,13 @@ export default function PositionPlayers({ id }) {
     };
     setArrays();
   }, []);
-  console.log(stats);
   // If player is goalie, displays different stats from regular player (use conditional to determine position status based on API call)
   // Image api - nhl.bamcontent.com/images/headshots/current/168x168/8474573.jpg
   if (loading) {
-    return (
-      <div>
+    try {
+      
+      return (
+        <div>
         <div>
           <h4>Image (placeholder)</h4>
           <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
@@ -36,7 +37,6 @@ export default function PositionPlayers({ id }) {
         </div>
         <h2>
           {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-          (Will become a filter feature)
         </h2>
         <div>
           <h3>
@@ -78,6 +78,11 @@ export default function PositionPlayers({ id }) {
         </div>
       </div>
     );
+  } catch (error) {
+    return (
+      <div>ERROR</div>
+    )
+  }
   } else {
     return <div>Loading</div>;
   }

@@ -13,7 +13,6 @@ export default function CompareStats({ id }) {
     };
     setArrays();
   }, []);
-  console.log(stats);
   if (loading) {
     if (stats.playerInfo.data.people[0].primaryPosition.name !== 'Goalie') {
       return <PositionPlayers id={id} />;

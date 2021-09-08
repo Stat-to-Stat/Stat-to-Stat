@@ -9,6 +9,8 @@ import {
 } from '../../../api/nhlApi';
 import CompareStats from './components/CompareStats';
 
+import "./style.css"
+
 function NHLPlayerToPlayer() {
   const [currentPlayerOne, setCurrentPlayerOne] = useState('');
   const [currentPlayerTwo, setCurrentPlayerTwo] = useState('');
@@ -44,7 +46,7 @@ function NHLPlayerToPlayer() {
 
   if (isLoaded) {
     return (
-      <div>
+      <div className="nhl-player-page-container">
         {showFilters ? (
           <div>
             <button
@@ -72,19 +74,22 @@ function NHLPlayerToPlayer() {
             Filters
           </button>
         )}
+        <div className="nhl-players-container">
+        {currentPlayerOne.id ? <CompareStats id={currentPlayerOne.id} /> : 
         <Search
           currentTeam={currentTeam}
           setCurrentPlayer={setCurrentPlayerOne}
           playerList={filteredPlayers}
           teamList={teamList}
-          />
+          />}
+        {currentPlayerTwo.id ? <CompareStats id={currentPlayerTwo.id} /> :
         <Search
           currentTeam={currentTeam}
           setCurrentPlayer={setCurrentPlayerTwo}
           playerList={filteredPlayers}
           teamList={teamList}
-        />
-        {currentPlayerOne.id ? <CompareStats id={currentPlayerOne.id} /> : null}
+          />}
+        </div>
       </div>
     );
   } else {

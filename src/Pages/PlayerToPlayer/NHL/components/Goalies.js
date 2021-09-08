@@ -11,7 +11,6 @@ export default function Goalies({ id }) {
     };
     setArrays();
   }, []);
-  console.log(stats);
   if (loading) {
     return (
       <div>
@@ -34,7 +33,6 @@ export default function Goalies({ id }) {
         </div>
         <h2>
           {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-          (Will become a filter feature)
         </h2>
         <div>
           <h3>

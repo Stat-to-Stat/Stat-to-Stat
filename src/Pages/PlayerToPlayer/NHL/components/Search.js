@@ -28,7 +28,7 @@ function Search({currentTeam, playerList, setCurrentPlayer}) {
         <div>
           <Autocomplete
             id='highlights-demo'
-            style={{ width: 300 }}
+            style={{ width: 175 }}
             onOpen={() => {
               if(playerList.length < 60){
                 setIsOpen(true);
@@ -47,7 +47,6 @@ function Search({currentTeam, playerList, setCurrentPlayer}) {
             }
             }}
             onChange={selectedPlayer}
-            autoSelect={true}
             forcePopupIcon={currentTeam.name ? true : false}
             options={playerList}
             getOptionLabel={(option) => option.name}

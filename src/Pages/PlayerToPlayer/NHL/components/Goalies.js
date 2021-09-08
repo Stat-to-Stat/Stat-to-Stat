@@ -15,7 +15,7 @@ export default function Goalies({ id }) {
     return (
       <div>
         <div>
-          <h4>Image (placeholder)</h4>
+          <img src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`} alt="Human" />
           <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
           <h3>
             Position: {stats.playerInfo.data.people[0].primaryPosition.name}

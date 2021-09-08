@@ -6,7 +6,7 @@ export default function Goalies({ id }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const setArrays = async () => {
-      setStats(await singlePlayerStatRetrieval(8475151));
+      setStats(await singlePlayerStatRetrieval(id));
       setLoading(true);
     };
     setArrays();
@@ -17,12 +17,14 @@ export default function Goalies({ id }) {
         <div>
           <img src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`} alt="Human" />
           <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
+          <h3>Height: {stats.playerInfo.data.people[0].height}</h3>
+          <h3>Weight: {stats.playerInfo.data.people[0].weight}lbs</h3>
           <h3>
             Position: {stats.playerInfo.data.people[0].primaryPosition.name}
           </h3>
           <h3>Team: {stats.playerInfo.data.people[0].currentTeam.name}</h3>
           <h3>
-            Date of Birth: {stats.playerInfo.data.people[0].birthDate} (
+            DOB: {stats.playerInfo.data.people[0].birthDate} (
             {stats.playerInfo.data.people[0].currentAge} years old)
           </h3>
           <h3>

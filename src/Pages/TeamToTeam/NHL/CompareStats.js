@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { singleTeamRosterRetrieval } from '../../../api/nhlApi';
-// import PositionPlayers from './PositionPlayers';
-// import Goalies from './Goalies';
 
 export default function CompareStats({ id }) {
   const [stats, setStats] = useState({});
@@ -15,13 +13,7 @@ export default function CompareStats({ id }) {
   }, []);
   console.log(stats);
   if (loading) {
-    if (stats.playerInfo.data.people[0].primaryPosition.name !== 'Goalie') {
-      return <div>Hi</div>;
-    } else if (
-      stats.playerInfo.data.people[0].primaryPosition.name === 'Goalie'
-    ) {
-      return <div>No u</div>;
-    }
+    return <div>Hi</div>;
   } else {
     return <div>Loading</div>;
   }

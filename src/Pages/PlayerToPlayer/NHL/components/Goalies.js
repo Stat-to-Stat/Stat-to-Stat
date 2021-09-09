@@ -15,7 +15,10 @@ export default function Goalies({ id }) {
     return (
       <div>
         <div>
-          <img src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`} alt="Human" />
+          <img
+            src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+            alt='Human'
+          />
           <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
           <h3>Height: {stats.playerInfo.data.people[0].height}</h3>
           <h3>Weight: {stats.playerInfo.data.people[0].weight}lbs</h3>

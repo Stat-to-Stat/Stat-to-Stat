@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Search from './NHL/Search';
-import { nhlTeamRetrieval, } from '../../api/nhlApi';
+import { nhlTeamRetrieval } from '../../api/nhlApi';
 import CompareStats from './NHL/CompareStats';
 
 export default function NHLTeamToTeam() {

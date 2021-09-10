@@ -38,7 +38,7 @@ export const singleNhlTeamRetrieval = (id) => {
   return axios
     .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.stats`)
     .then((res) => {
-      return(res);
+      return res.data.teams[0];
     });
 };
 // Single Team Roster

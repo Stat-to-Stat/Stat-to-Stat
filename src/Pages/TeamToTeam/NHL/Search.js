@@ -4,7 +4,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 
-function Search({ currentTeam, playerList, setCurrentTeam }) {
+function Search({ currentTeam, teamList, setCurrentTeam }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const selectedTeam = (event, value) => {
@@ -19,7 +19,7 @@ function Search({ currentTeam, playerList, setCurrentTeam }) {
         id='highlights-demo'
         style={{ width: 300 }}
         onOpen={() => {
-          if (playerList.length < 60) {
+          if (teamList.length < 60) {
             setIsOpen(true);
           }
         }}
@@ -27,7 +27,7 @@ function Search({ currentTeam, playerList, setCurrentTeam }) {
           setIsOpen(false);
         }}
         open={isOpen}
-        noOptionsText={'No Players Found'}
+        noOptionsText={'No Team Found'}
         onInputChange={(e, v) => {
           if (v.length) {
             setIsOpen(true);
@@ -38,7 +38,7 @@ function Search({ currentTeam, playerList, setCurrentTeam }) {
         onChange={selectedTeam}
         autoSelect={true}
         forcePopupIcon={currentTeam.name ? true : false}
-        options={playerList}
+        options={teamList}
         getOptionLabel={(option) => option.name}
         getOptionSelected={(option, value) => option.id === value.id}
         renderInput={(params) => (

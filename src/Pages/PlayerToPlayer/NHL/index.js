@@ -16,15 +16,15 @@ function NHLPlayerToPlayer() {
 
   const [allPlayers, setAllPlayers] = useState([]);
 
-  const [filteredPlayers, setFilteredPlayers] = useState([]);
+  const [filteredPlayersOne, setFilteredPlayersOne] = useState([]);
+  const [filteredPlayersTwo, setFilteredPlayersTwo] = useState([]);
 
-  const [currentTeam, setCurrentTeam] = useState('');
+  const [currentTeamOne, setCurrentTeamOne] = useState('');
+  const [currentTeamTwo, setCurrentTeamTwo] = useState('');
 
   const [teamList, setTeamList] = useState([]);
 
   const [isLoaded, setIsLoaded] = useState(false);
-
-  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     const setArrays = async () => {
@@ -43,57 +43,64 @@ function NHLPlayerToPlayer() {
       setTeamList(allTeams);
       const playerList = await nhlPlayerRetrieval();
       setAllPlayers(playerList);
-      setFilteredPlayers(playerList);
+      setFilteredPlayersOne(playerList);
+      setFilteredPlayersTwo(playerList);
       setIsLoaded(true);
     };
     setArrays();
   }, []);
-
+    
   if (isLoaded) {
     return (
       <div className="nhl-player-page-container">
-        {showFilters ? (
-          <div>
-            <button
-              onClick={() => {
-                setShowFilters(false);
-              }}
-            >
-              Filters
-            </button>
-            <Filter
-              allPlayers={allPlayers}
-              singleTeamRosterRetrieval={singleTeamRosterRetrieval}
-              setPlayers={setFilteredPlayers}
-              team={currentTeam}
-              setTeam={setCurrentTeam}
-              teamList={teamList}
-            />
-          </div>
-        ) : (
-          <button
-            onClick={() => {
-              setShowFilters(true);
-            }}
-          >
-            Filters
-          </button>
-        )}
+
         <div className="nhl-players-container">
-        {currentPlayerOne.id ? <CompareStats id={currentPlayerOne.id} /> : 
+        {currentPlayerOne.id ? 
+        <div style={{backgroundColor:"#00d9ff4d"}} className="nhl-player-stats">
+        <CompareStats id={currentPlayerOne.id} />
+        <button onClick={() => {setCurrentPlayerOne('')}}>Search</button>
+        </div> 
+        : 
+        <div style={{backgroundColor:"#00d9ff4d"}} className="nhl-player-search">
+          <Filter
+            allPlayers={allPlayers}
+            singleTeamRosterRetrieval={singleTeamRosterRetrieval}
+            setPlayers={setFilteredPlayersOne}
+            team={currentTeamOne}
+            setTeam={setCurrentTeamOne}
+            teamList={teamList}
+          />
         <Search
-          currentTeam={currentTeam}
+          currentTeam={currentTeamOne}
           setCurrentPlayer={setCurrentPlayerOne}
-          playerList={filteredPlayers}
+          playerList={filteredPlayersOne}
           teamList={teamList}
-          />}
-        {currentPlayerTwo.id ? <CompareStats id={currentPlayerTwo.id} /> :
+          />
+          </div>
+          }
+        {currentPlayerTwo.id ? 
+        <div style={{backgroundColor:"#ff00004d"}} className="nhl-player-stats">
+        <CompareStats id={currentPlayerTwo.id} /> 
+        <button onClick={() => {setCurrentPlayerTwo('')}}>Search</button>
+        </div>
+        :
+        <div style={{backgroundColor:"#ff00004d"}} className="nhl-player-search"> 
+          <Filter
+            allPlayers={allPlayers}
+            singleTeamRosterRetrieval={singleTeamRosterRetrieval}
+            setPlayers={setFilteredPlayersTwo}
+            team={currentTeamTwo}
+            setTeam={setCurrentTeamTwo}
+            teamList={teamList}
+          />
         <Search
-          currentTeam={currentTeam}
+          currentTeam={currentTeamTwo}
           setCurrentPlayer={setCurrentPlayerTwo}
-          playerList={filteredPlayers}
+          playerList={filteredPlayersTwo}
           teamList={teamList}
-          />}
+          />
+          </div>
+          }
         </div>
       </div>
     );

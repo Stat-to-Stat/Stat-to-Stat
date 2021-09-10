@@ -17,10 +17,10 @@ export default function PositionPlayers({ id }) {
       return (
         <div>
           <div>
-            <img
-              src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
-              alt='Human'
-            />
+          <h2>
+            {stats.playerStats.data.stats[0].splits[0].season} Regular Season
+          </h2>
+            <img src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`} alt={`Human`} />
             <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
             <h3>Height: {stats.playerInfo.data.people[0].height}</h3>
             <h3>Weight: {stats.playerInfo.data.people[0].weight}lbs</h3>
@@ -38,9 +38,6 @@ export default function PositionPlayers({ id }) {
             </h3>
             <h3>Hand: {stats.playerInfo.data.people[0].shootsCatches}</h3>
           </div>
-          <h2>
-            {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-          </h2>
           <div>
             <h3>
               Games Played:{' '}
@@ -80,7 +77,7 @@ export default function PositionPlayers({ id }) {
               {stats.playerStats.data.stats[0].splits[0].stat.plusMinus}
             </h3>
             <h3>
-              Time On Ice Per Game:{' '}
+              TOI Per Game:{' '}
               {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
             </h3>
           </div>

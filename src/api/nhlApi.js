@@ -35,10 +35,10 @@ export const nhlTeamRetrieval = () => {
 
 // Single Team
 export const singleNhlTeamRetrieval = (id) => {
-  axios
-    .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?=team.stats`)
+  return axios
+    .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.stats`)
     .then((res) => {
-      console.log(res);
+      return(res);
     });
 };
 // Single Team Roster

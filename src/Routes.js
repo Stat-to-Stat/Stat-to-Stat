@@ -20,7 +20,7 @@ export default function Routes() {
         <Route exact path='/NHL/players'>
           <NHLPlayerToPlayer />
         </Route>
-        <Route exact path='NHL/teams'>
+        <Route exact path='/NHL/teams'>
           <NHLTeamToTeam />
         </Route>
       </Switch>

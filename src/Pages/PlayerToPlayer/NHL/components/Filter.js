@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -20,6 +20,9 @@ function Filter({
   team,
   singleTeamRosterRetrieval,
 }) {
+
+  const [showFilters, setShowFilters] = useState(false);
+
   const classes = useStyles();
 
   const handleChange = async (event) => {
@@ -35,8 +38,28 @@ function Filter({
     }
   };
 
+  if(!showFilters){
+    return (
+    <button
+      onClick={() => {
+        setShowFilters(true);
+      }}
+    >
+      Filters
+    </button>
+    )
+  }
+
   return (
-    <FormControl variant='outlined' className={classes.formControl}>
+    <div>
+      <button
+        onClick={() => {
+          setShowFilters(false);
+        }}
+      >
+        Filters
+      </button>
+      <FormControl variant='outlined' className={classes.formControl}>
       <InputLabel id='demo-simple-select-outlined-label'>Team</InputLabel>
       <Select
         labelId='demo-simple-select-outlined-label'
@@ -57,7 +80,36 @@ function Filter({
         })}
       </Select>
     </FormControl>
+    </div>
   );
 }
 
 export default Filter;
+
+// {showFilters ? (
+//   <div>
+//     <button
+//       onClick={() => {
+//         setShowFilters(false);
+//       }}
+//     >
+//       Filters
+//     </button>
+//     <Filter
+//       allPlayers={allPlayers}
+//       singleTeamRosterRetrieval={singleTeamRosterRetrieval}
+//       setPlayers={setFilteredPlayers}
+//       team={currentTeam}
+//       setTeam={setCurrentTeam}
+//       teamList={teamList}
+//     />
+//   </div>
+// ) : (
+//   <button
+//     onClick={() => {
+//       setShowFilters(true);
+//     }}
+//   >
+//     Filters
+//   </button>
+// )}

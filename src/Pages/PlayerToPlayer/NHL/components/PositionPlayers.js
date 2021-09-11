@@ -11,17 +11,25 @@ export default function PositionPlayers({ id }) {
     const setArrays = async () => {
       const playerStats = await singlePlayerStatRetrieval(id);
       setStats(playerStats);
-      const playerStatsHelper =
+      console.log(playerStats)
+      try{
+        const playerStatsHelper =
         playerStats.playerStats.data.stats[0].splits[0].stat;
-      const playerInfoHelper = playerStats.playerInfo.data.people[0];
-      setPlayerInfo(playerInfoHelper);
-      setPlayerStats(playerStatsHelper);
+        const playerInfoHelper = playerStats.playerInfo.data.people[0];
+        setPlayerInfo(playerInfoHelper);
+        setPlayerStats(playerStatsHelper);
+      } catch(err){
+        console.log("Didn't player current season")
+        setPlayerInfo({})
+        setPlayerStats({})
+      }
       setLoading(true);
     };
     setArrays();
   }, []);
 
   if (loading) {
+    try{
       return (
         <div className="each-player-stats">
           <h2>
@@ -90,7 +98,11 @@ export default function PositionPlayers({ id }) {
             </h3>
         </div>
     );
-    }else {
+  } catch (e) {
+    console.log(e)
+    return(<div>Error loading player</div>)
+  }
+  }else {
     return <div>Loading</div>;
   }
 }

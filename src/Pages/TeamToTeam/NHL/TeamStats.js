@@ -26,6 +26,13 @@ export default function TeamStats({ id }) {
   }
   return (
     <div>
+      <img
+        src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${id}.svg`}
+        alt={`Hello`}
+        style={{
+          width: '170px',
+        }}
+      />
       <div>
         <h3>Name: {stats.name}</h3>
         <h3>Divsion: {stats.division.name}</h3>
@@ -85,9 +92,3 @@ export default function TeamStats({ id }) {
     </div>
   );
 }
-
-// powerplay & penalty kill
-// PIM per game
-// PP per game
-// Average Goals per
-// Average Goals against

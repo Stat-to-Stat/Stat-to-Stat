@@ -56,12 +56,12 @@ function NHLPlayerToPlayer() {
 
         <div className="nhl-players-container">
         {currentPlayerOne.id ? 
-        <div style={{backgroundColor:"#00d9ff4d"}} className="nhl-player-stats">
+        <div style={{backgroundColor:"#00d9ff"}} className="nhl-player-stats">
         <CompareStats id={currentPlayerOne.id} />
         <button onClick={() => {setCurrentPlayerOne('')}}>Search</button>
         </div> 
         : 
-        <div style={{backgroundColor:"#00d9ff4d"}} className="nhl-player-search">
+        <div style={{backgroundColor:"#00d9ff"}} className="nhl-player-search">
           <Filter
             allPlayers={allPlayers}
             singleTeamRosterRetrieval={singleTeamRosterRetrieval}
@@ -79,12 +79,12 @@ function NHLPlayerToPlayer() {
           </div>
           }
         {currentPlayerTwo.id ? 
-        <div style={{backgroundColor:"#ff00004d"}} className="nhl-player-stats">
+        <div style={{backgroundColor:"#ff434f"}} className="nhl-player-stats">
         <CompareStats id={currentPlayerTwo.id} /> 
         <button onClick={() => {setCurrentPlayerTwo('')}}>Search</button>
         </div>
         :
-        <div style={{backgroundColor:"#ff00004d"}} className="nhl-player-search"> 
+        <div style={{backgroundColor:"#ff434f"}} className="nhl-player-search"> 
           <Filter
             allPlayers={allPlayers}
             singleTeamRosterRetrieval={singleTeamRosterRetrieval}

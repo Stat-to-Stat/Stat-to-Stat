@@ -24,7 +24,7 @@ export default function Goalies({ id }) {
   console.log(playerStats);
   if (loading) {
     return (
-      <div>
+      <div className="each-player-stats">
         <div>
           <h2>
             {stats.playerStats.data.stats[0].splits[0].season} Regular Season

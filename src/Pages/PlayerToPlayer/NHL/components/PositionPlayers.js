@@ -22,7 +22,6 @@ export default function PositionPlayers({ id }) {
   }, []);
 
   if (loading) {
-    try {
       return (
         <div className="each-player-stats">
           <h2>
@@ -90,9 +89,8 @@ export default function PositionPlayers({ id }) {
               {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
             </h3>
         </div>
-      </div>
     );
-  } else {
+    }else {
     return <div>Loading</div>;
   }
 }

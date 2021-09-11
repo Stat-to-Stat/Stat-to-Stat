@@ -3,10 +3,19 @@ import { singlePlayerStatRetrieval } from '../../../../api/nhlApi';
 
 export default function PositionPlayers({ id }) {
   const [stats, setStats] = useState({});
+  const [playerInfo, setPlayerInfo] = useState({});
+  const [playerStats, setPlayerStats] = useState({});
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const setArrays = async () => {
-      setStats(await singlePlayerStatRetrieval(id));
+      const playerStats = await singlePlayerStatRetrieval(id);
+      setStats(playerStats);
+      const playerStatsHelper =
+        playerStats.playerStats.data.stats[0].splits[0].stat;
+      const playerInfoHelper = playerStats.playerInfo.data.people[0];
+      setPlayerInfo(playerInfoHelper);
+      setPlayerStats(playerStatsHelper);
       setLoading(true);
     };
     setArrays();
@@ -16,9 +25,9 @@ export default function PositionPlayers({ id }) {
     try {
       return (
         <div className="each-player-stats">
-
           <h2>
             {stats.playerStats.data.stats[0].splits[0].season} Regular Season
+            (will have option to change season)
           </h2>
             <img src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`} alt={`Human`} />
             <h3>Name: {stats.playerInfo.data.people[0].fullName}</h3>
@@ -80,12 +89,9 @@ export default function PositionPlayers({ id }) {
               TOI Per Game:{' '}
               {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
             </h3>
-
         </div>
-      );
-    } catch (error) {
-      return <div>ERROR</div>;
-    }
+      </div>
+    );
   } else {
     return <div>Loading</div>;
   }

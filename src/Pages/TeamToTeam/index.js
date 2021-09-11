@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Search from './NHL/Search';
-import { nhlTeamRetrieval, } from '../../api/nhlApi';
-import CompareStats from './NHL/CompareStats';
+import { nhlTeamRetrieval } from '../../api/nhlApi';
+import TeamStats from './NHL/TeamStats';
 
 export default function NHLTeamToTeam() {
   const [currentTeam, setCurrentTeam] = useState('');
+  const [currentTeamOne, setCurrentTeamOne] = useState('');
+
+  const [currentTeamTwo, setCurrentTeamTwo] = useState('');
 
   const [teamList, setTeamList] = useState([]);
 
@@ -29,21 +32,27 @@ export default function NHLTeamToTeam() {
     };
     setArrays();
   }, []);
-
   if (isLoaded) {
     return (
       <div>
-        <Search
-          currentTeam={currentTeam}
-          setCurrentTeamOne={setCurrentTeam}
-          teamList={teamList}
-        />
-        <Search
-          currentTeam={currentTeam}
-          setCurrentTeamTwo={setCurrentTeam}
-          teamList={teamList}
-        />
-        {currentTeam.id ? <CompareStats id={currentTeam.id} /> : null}
+        {currentTeamOne.id ? (
+          <TeamStats id={currentTeamOne.id} />
+        ) : (
+          <Search
+            currentTeam={currentTeam}
+            setCurrentTeam={setCurrentTeamOne}
+            teamList={teamList}
+          />
+        )}
+        {currentTeamTwo.id ? (
+          <TeamStats id={currentTeamTwo.id} />
+        ) : (
+          <Search
+            currentTeam={currentTeam}
+            setCurrentTeam={setCurrentTeamTwo}
+            teamList={teamList}
+          />
+        )}
       </div>
     );
   } else {

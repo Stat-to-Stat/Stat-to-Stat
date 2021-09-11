@@ -15,8 +15,8 @@ export default function PositionPlayers({ id }) {
   if (loading) {
     try {
       return (
-        <div>
-          <div>
+        <div className="each-player-stats">
+
           <h2>
             {stats.playerStats.data.stats[0].splits[0].season} Regular Season
           </h2>
@@ -37,8 +37,8 @@ export default function PositionPlayers({ id }) {
               {stats.playerInfo.data.people[0].birthStateProvince}
             </h3>
             <h3>Hand: {stats.playerInfo.data.people[0].shootsCatches}</h3>
-          </div>
-          <div>
+
+
             <h3>
               Games Played:{' '}
               {stats.playerStats.data.stats[0].splits[0].stat.games}
@@ -80,7 +80,7 @@ export default function PositionPlayers({ id }) {
               TOI Per Game:{' '}
               {stats.playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
             </h3>
-          </div>
+
         </div>
       );
     } catch (error) {

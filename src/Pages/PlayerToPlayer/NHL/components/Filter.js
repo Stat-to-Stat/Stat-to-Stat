@@ -51,7 +51,7 @@ function Filter({
   }
 
   return (
-    <div>
+    <div className="player-filter">
       <button
         onClick={() => {
           setShowFilters(false);

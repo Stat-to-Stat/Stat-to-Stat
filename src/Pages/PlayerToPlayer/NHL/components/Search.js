@@ -25,7 +25,7 @@ function Search({currentTeam, playerList, setCurrentPlayer}) {
         } else setCurrentPlayer('');
       };
       return (
-        <div>
+        <div className="player-each-search">
           <Autocomplete
             id='highlights-demo'
             style={{ width: 175 }}

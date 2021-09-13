@@ -49,8 +49,7 @@ export default function PositionPlayers({ id }) {
               {stats.playerInfo.data.people[0].currentAge} years old)
             </h3>
             <h3>
-              Birthplace: {stats.playerInfo.data.people[0].birthCity},{' '}
-              {stats.playerInfo.data.people[0].birthStateProvince}
+              Birthplace: {playerInfo.birthCity}, {playerInfo.birthStateProvince || playerInfo.birthCountry}
             </h3>
             <h3>Hand: {stats.playerInfo.data.people[0].shootsCatches}</h3>
 

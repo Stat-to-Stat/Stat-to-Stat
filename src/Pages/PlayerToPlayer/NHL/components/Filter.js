@@ -7,8 +7,7 @@ import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
+    width: 175,
   },
 }));
 
@@ -52,7 +51,7 @@ function Filter({
 
   return (
     <div className="player-filter">
-      <button
+      <button className="btn btn-filters"
         onClick={() => {
           setShowFilters(false);
         }}

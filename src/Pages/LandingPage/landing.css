@@ -1,7 +1,7 @@
 .landing-page-container {
   width: 100vw;
   min-height: 100vh;
-  background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34.38%, #2C2C30 61.98%, #1A1A1D 100%);
+  background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282c 0%, #1a1a1d 34.38%, #2c2c30 61.98%, #1a1a1d 100%);
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,7 +18,7 @@
   margin: 1rem 0 1rem 0;
   font-size: 3rem;
   color: #ffc800;
-  font-family: "Viga", Times, serif;
+  font-family: 'Viga', Times, serif;
 }
 
 .landing-page-container .landing-page-sports-container {
@@ -43,8 +43,8 @@
   display: -ms-grid;
   display: grid;
   place-items: center;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .landing-page-container .landing-page-sports-container .landing-page-sport-logo:hover img {
@@ -55,7 +55,7 @@
   max-width: 90%;
   max-height: 80%;
   margin: 0;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 /*# sourceMappingURL=landing.css.map */

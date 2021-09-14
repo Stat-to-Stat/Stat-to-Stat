@@ -8,7 +8,7 @@ import {
   singlePlayerStatRetrieval,
 } from '../../../../api/nhlApi';
 
-function Search({currentTeam, playerList, setCurrentPlayer}) {
+function Search({currentTeam, playerList, setCurrentPlayer, position}) {
     //   const [sortedPlayers, setSortedPlayers] = useState([]);
       const [isOpen, setIsOpen] = useState(false);
       
@@ -30,7 +30,7 @@ function Search({currentTeam, playerList, setCurrentPlayer}) {
             id='highlights-demo'
             style={{ width: 175 }}
             onOpen={() => {
-              if(playerList.length < 60){
+              if(playerList.length < 60 || position.length > 0){
                 setIsOpen(true);
               }
             }}
@@ -47,7 +47,7 @@ function Search({currentTeam, playerList, setCurrentPlayer}) {
             }
             }}
             onChange={selectedPlayer}
-            forcePopupIcon={currentTeam.name ? true : false}
+            forcePopupIcon={currentTeam.name ? true : position.length > 0 ? true : false}
             options={playerList}
             getOptionLabel={(option) => option.name}
             getOptionSelected={(option, value) => option.id === value.id}

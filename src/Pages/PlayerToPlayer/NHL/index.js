@@ -21,6 +21,9 @@ function NHLPlayerToPlayer() {
 
   const [currentTeamOne, setCurrentTeamOne] = useState('');
   const [currentTeamTwo, setCurrentTeamTwo] = useState('');
+  
+  const [currentPostionOne, setCurrentPostionOne] = useState('');
+  const [currentPostionTwo, setCurrentPostionTwo] = useState('');
 
   const [teamList, setTeamList] = useState([]);
 
@@ -66,14 +69,18 @@ function NHLPlayerToPlayer() {
             allPlayers={allPlayers}
             singleTeamRosterRetrieval={singleTeamRosterRetrieval}
             setPlayers={setFilteredPlayersOne}
+            playerList={filteredPlayersOne}
             team={currentTeamOne}
             setTeam={setCurrentTeamOne}
             teamList={teamList}
-          />
+            setPosition={setCurrentPostionOne}
+            position={currentPostionOne}
+            />
         <Search
           currentTeam={currentTeamOne}
           setCurrentPlayer={setCurrentPlayerOne}
           playerList={filteredPlayersOne}
+          position={currentPostionOne}
           teamList={teamList}
           />
           </div>
@@ -89,14 +96,18 @@ function NHLPlayerToPlayer() {
             allPlayers={allPlayers}
             singleTeamRosterRetrieval={singleTeamRosterRetrieval}
             setPlayers={setFilteredPlayersTwo}
+            playerList={filteredPlayersTwo}
             team={currentTeamTwo}
             setTeam={setCurrentTeamTwo}
+            setPosition={setCurrentPostionTwo}
+            position={currentPostionTwo}
             teamList={teamList}
-          />
+            />
         <Search
           currentTeam={currentTeamTwo}
           setCurrentPlayer={setCurrentPlayerTwo}
           playerList={filteredPlayersTwo}
+          position={currentPostionTwo}
           teamList={teamList}
           />
           </div>

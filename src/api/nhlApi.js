@@ -13,6 +13,7 @@ export const nhlPlayerRetrieval = () => {
           playerArr.push({
             id: player.person.id,
             name: player.person.fullName,
+            position: player.position.name,
           });
         }
       }
@@ -52,6 +53,7 @@ export const singleTeamRosterRetrieval = (id) => {
         rosterArr.push({
           name: player.person.fullName,
           id: player.person.id,
+          position: player.position.name
         });
       }
     });

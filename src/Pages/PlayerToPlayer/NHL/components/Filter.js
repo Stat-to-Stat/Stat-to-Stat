@@ -11,6 +11,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const positionOptions = [
+  "Center",
+  "Defenseman",
+  "Goalie",
+  "Left Wing",
+  "Right Wing"
+]
+
 function Filter({
   allPlayers,
   setPlayers,
@@ -18,6 +26,9 @@ function Filter({
   setTeam,
   team,
   singleTeamRosterRetrieval,
+  playerList,
+  setPosition,
+  position
 }) {
 
   const [showFilters, setShowFilters] = useState(false);
@@ -36,6 +47,22 @@ function Filter({
       setPlayers(allPlayers);
     }
   };
+
+  const handlePosition = (e) => {
+    if(e.target.value){
+      const positionedPlayer = []
+      for(const player of playerList){
+        if(player.position === e.target.value){
+          positionedPlayer.push(player)
+        }
+      }
+      setPlayers(positionedPlayer)
+      setPosition(e.target.value)
+    } else {
+      setPosition('');
+      setPlayers(allPlayers);
+    }
+  }
 
   if(!showFilters){
     return (
@@ -58,6 +85,9 @@ function Filter({
       >
         Filters
       </button>
+
+      {/* Teams */}
+
       <FormControl variant='outlined' className={classes.formControl}>
       <InputLabel id='demo-simple-select-outlined-label'>Team</InputLabel>
       <Select
@@ -79,36 +109,33 @@ function Filter({
         })}
       </Select>
     </FormControl>
+
+    {/* Position */}
+
+      <FormControl variant='outlined' className={classes.formControl}>
+      <InputLabel id='demo-simple-select-outlined-label'>Position</InputLabel>
+      <Select
+        labelId='demo-simple-select-outlined-label'
+        id='demo-simple-select-outlined'
+        value={position}
+        onChange={handlePosition}
+        label='Position'
+      >
+        <MenuItem value=''>
+          <em>None</em>
+        </MenuItem>
+        {positionOptions.map((team, i) => {
+          return (
+            <MenuItem key={i} value={team}>
+              <em>{team}</em>
+            </MenuItem>
+          );
+        })}
+      </Select>
+    </FormControl>
+
     </div>
   );
 }
 
 export default Filter;
-
-// {showFilters ? (
-//   <div>
-//     <button
-//       onClick={() => {
-//         setShowFilters(false);
-//       }}
-//     >
-//       Filters
-//     </button>
-//     <Filter
-//       allPlayers={allPlayers}
-//       singleTeamRosterRetrieval={singleTeamRosterRetrieval}
-//       setPlayers={setFilteredPlayers}
-//       team={currentTeam}
-//       setTeam={setCurrentTeam}
-//       teamList={teamList}
-//     />
-//   </div>
-// ) : (
-//   <button
-//     onClick={() => {
-//       setShowFilters(true);
-//     }}
-//   >
-//     Filters
-//   </button>
-// )}

@@ -7,6 +7,10 @@ import { NHLPlayerToPlayer } from './Pages/PlayerToPlayer';
 
 import NHLTeamToTeam from './Pages/TeamToTeam';
 
+import AboutUs from './aboutContact/AboutUs';
+
+import ContactUs from './aboutContact/ContactUs';
+
 export default function Routes() {
   return (
     <Router>
@@ -22,6 +26,12 @@ export default function Routes() {
         </Route>
         <Route exact path='/NHL/teams'>
           <NHLTeamToTeam />
+        </Route>
+        <Route exact path='/aboutus'>
+          <AboutUs />
+        </Route>
+        <Route exact path='/contactus'>
+          <ContactUs />
         </Route>
       </Switch>
     </Router>

@@ -54,7 +54,6 @@ export default function PositionPlayers({ id }) {
             {playerInfo.data.people[0].birthStateProvince}
           </h3>
           <h3>Hand: {playerInfo.data.people[0].shootsCatches}</h3>
-
           <h3>
             Games Played: {playerStats.data.stats[0].splits[0].stat.games}
           </h3>

@@ -27,10 +27,14 @@ background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34
             margin: 0 !important;
             margin-top: 10px !important;
         }
-
-        img{
-            max-width: 160px;
-            border-radius: 50%;
+        .player-picture{
+            width: 100%;
+            display: grid;
+            place-items: center;
+            img{
+                max-width: 150px;
+                border-radius: 50%;
+            }
         }
 
         .nhl-player-search{
@@ -48,10 +52,8 @@ background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34
         }
         
         .player-filter{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-bottom: 10px;
+            display:grid;
+            place-items: center;
         }
         
         .nhl-player-stats{
@@ -70,6 +72,32 @@ background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34
                 align-items: center;
             }
         }
+
+        .btn-filters{
+           width: 100%; 
+        }
         
+    }
+}
+
+.player-stat-table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    td{
+        padding: 1px;
+        margin: 0;
+        font-size: 14px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .player-cell-even{
+        background-color: rgba(255, 255, 255, 0.582);
+    }
+    .player-cell-odd{
+        background-color: rgba(226, 226, 226, 0.37);
     }
 }

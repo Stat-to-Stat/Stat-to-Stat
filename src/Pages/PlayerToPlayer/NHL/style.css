@@ -40,8 +40,15 @@
   margin-top: 10px !important;
 }
 
-.nhl-player-page-container .nhl-players-container img {
-  max-width: 160px;
+.nhl-player-page-container .nhl-players-container .player-picture {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.nhl-player-page-container .nhl-players-container .player-picture img {
+  max-width: 150px;
   border-radius: 50%;
 }
 
@@ -69,17 +76,9 @@
 }
 
 .nhl-player-page-container .nhl-players-container .player-filter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 10px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
 }
 
 .nhl-player-page-container .nhl-players-container .nhl-player-stats {
@@ -113,5 +112,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.nhl-player-page-container .nhl-players-container .btn-filters {
+  width: 100%;
+}
+
+.player-stat-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.player-stat-table td {
+  padding: 1px;
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.player-stat-table .player-cell-even {
+  background-color: rgba(255, 255, 255, 0.582);
+}
+
+.player-stat-table .player-cell-odd {
+  background-color: rgba(226, 226, 226, 0.37);
 }
 /*# sourceMappingURL=style.css.map */

@@ -20,19 +20,34 @@ export default function Goalies({ id }) {
     };
     setArrays();
   }, []);
-  console.log(playerInfo);
-  console.log(playerStats);
+
   if (loading) {
+    const tableStats = {
+      "Games Played": playerStats.games,
+      "Games Started": playerStats.gamesStarted,
+      "Goals Against Average": playerStats.goalAgainstAverage.toFixed(2),
+      "Goals Against": playerStats.goalsAgainst,
+      "Wins": playerStats.wins,
+      "Losses": playerStats.losses,
+      "Overtime Losses": playerStats.ot,
+      "Save Percentage": playerStats.savePercentage,
+      "Saves": playerStats.saves,
+      "Shots Against": playerStats.shotsAgainst,
+      "PowerPlay Saves": playerStats.powerPlaySaves,
+      "PowerPlay Shots Against": playerStats.powerPlayShots,
+    }
     return (
       <div className="each-player-stats">
         <div>
           <h2>
             {stats.playerStats.data.stats[0].splits[0].season} Regular Season
           </h2>
+          <div className="player-picture">
           <img
             src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
             alt={`Human`}
-          />
+            />
+            </div>
           <h3>Name: {playerInfo.fullName}</h3>
           <h3>Height: {playerInfo.height}</h3>
           <h3>Weight: {playerInfo.weight}lbs</h3>
@@ -42,25 +57,28 @@ export default function Goalies({ id }) {
             DOB: {playerInfo.birthDate} ({playerInfo.currentAge} years old)
           </h3>
           <h3>
-            Birthplace: {playerInfo.birthCity}, {playerInfo.birthCountry}
+            Birthplace: {playerInfo.birthCity}, {playerInfo.birthStateProvince || playerInfo.birthCountry}
           </h3>
           <h3>Hand: {playerInfo.shootsCatches}</h3>
         </div>
         <div>
-          <h3>Games Played: {playerStats.games}</h3>
-          <h3>Games Started: {playerStats.gamesStarted}</h3>
-          <h3>
-            Goals Against Average: {playerStats.goalAgainstAverage.toFixed(2)}
-          </h3>
-          <h3>Goals Against: {playerStats.goalsAgainst}</h3>
-          <h3>Wins: {playerStats.wins}</h3>
-          <h3>Losses: {playerStats.losses}</h3>
-          <h3>Overtime Losses: {playerStats.ot}</h3>
-          <h3>Save Percentage: {playerStats.savePercentage}</h3>
-          <h3>Saves: {playerStats.saves}</h3>
-          <h3>Shots Against: {playerStats.shotsAgainst}</h3>
-          <h3>PowerPlay Saves: {playerStats.powerPlaySaves}</h3>
-          <h3>PowerPlay Shots Against: {playerStats.powerPlayShots}</h3>
+        <table className="player-stat-table">
+          <tbody>
+            {Object.keys(tableStats).map((key, i) => {
+              return(
+                <tr key={i} className={`${i % 2 === 0 ? "player-cell-even" : "player-cell-odd"}`}>
+                  <td>
+                    {key}
+                  </td>
+                  <td>
+                  {tableStats[key]}
+                  </td>
+                </tr>
+                )
+            })}
+          </tbody>
+        </table>
+        
         </div>
       </div>
     );

@@ -19,7 +19,7 @@ export default function PositionPlayers({ id }) {
         setPlayerInfo(playerInfoHelper);
         setPlayerStats(playerStatsHelper);
       } catch (err) {
-        console.log("Didn't player current season");
+        console.log("Didn't play in selected season");
         setPlayerInfo({});
         setPlayerStats({});
       }
@@ -27,7 +27,7 @@ export default function PositionPlayers({ id }) {
     };
     setArrays();
   }, []);
-
+  // console.log(playerInfo.data.people[0].fullName);
   if (loading) {
     try {
       return (
@@ -40,50 +40,30 @@ export default function PositionPlayers({ id }) {
             src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
             alt={`Human`}
           />
-          <h3>Name: {playerInfo.data.people[0].fullName}</h3>
-          <h3>Height: {playerInfo.data.people[0].height}</h3>
-          <h3>Weight: {playerInfo.data.people[0].weight}lbs</h3>
-          <h3>Position: {playerInfo.data.people[0].primaryPosition.name}</h3>
-          <h3>Team: {playerInfo.data.people[0].currentTeam.name}</h3>
+          <h3>Name: {playerInfo.fullName}</h3>
+          <h3>Height: {playerInfo.height}</h3>
+          <h3>Weight: {playerInfo.weight}lbs</h3>
+          <h3>Position: {playerInfo.primaryPosition.name}</h3>
+          <h3>Team: {playerInfo.currentTeam.name}</h3>
           <h3>
-            DOB: {playerInfo.data.people[0].birthDate} (
-            {playerInfo.data.people[0].currentAge} years old)
+            DOB: {playerInfo.birthDate} ({playerInfo.currentAge} years old)
           </h3>
           <h3>
-            Birthplace: {playerInfo.data.people[0].birthCity},{' '}
-            {playerInfo.data.people[0].birthStateProvince}
+            Birthplace: {playerInfo.birthCity}, {playerInfo.birthStateProvince}
           </h3>
-          <h3>Hand: {playerInfo.data.people[0].shootsCatches}</h3>
-          <h3>
-            Games Played: {playerStats.data.stats[0].splits[0].stat.games}
-          </h3>
-          <h3>Points: {playerStats.data.stats[0].splits[0].stat.points}</h3>
-          <h3>Goals: {playerStats.data.stats[0].splits[0].stat.goals}</h3>
-          <h3>Assists: {playerStats.data.stats[0].splits[0].stat.assists}</h3>
-          <h3>Shots: {playerStats.data.stats[0].splits[0].stat.shots}</h3>
-          <h3>Hits: {playerStats.data.stats[0].splits[0].stat.hits}</h3>
-          <h3>
-            Blocked Shots: {playerStats.data.stats[0].splits[0].stat.blocked}
-          </h3>
-          <h3>
-            Penalty Minutes: {playerStats.data.stats[0].splits[0].stat.assists}
-          </h3>
-          <h3>
-            PowerPlay Goals:{' '}
-            {playerStats.data.stats[0].splits[0].stat.powerPlayGoals}
-          </h3>
-          <h3>
-            PowerPlay Points:{' '}
-            {playerStats.data.stats[0].splits[0].stat.powerPlayPoints}
-          </h3>
-          <h3>
-            Plus/Minus (+/-):{' '}
-            {playerStats.data.stats[0].splits[0].stat.plusMinus}
-          </h3>
-          <h3>
-            TOI/Per Game:{' '}
-            {playerStats.data.stats[0].splits[0].stat.timeOnIcePerGame}
-          </h3>
+          <h3>Hand: {playerInfo.shootsCatches}</h3>
+          <h3>Games Played: {playerStats.games}</h3>
+          <h3>Points: {playerStats.points}</h3>
+          <h3>Goals: {playerStats.goals}</h3>
+          <h3>Assists: {playerStats.assists}</h3>
+          <h3>Shots: {playerStats.shots}</h3>
+          <h3>Hits: {playerStats.hits}</h3>
+          <h3>Blocked Shots: {playerStats.blocked}</h3>
+          <h3>Penalty Minutes: {playerStats.assists}</h3>
+          <h3>PowerPlay Goals: {playerStats.powerPlayGoals}</h3>
+          <h3>PowerPlay Points: {playerStats.powerPlayPoints}</h3>
+          <h3>Plus/Minus (+/-): {playerStats.plusMinus}</h3>
+          <h3>TOI/Per Game: {playerStats.timeOnIcePerGame}</h3>
         </div>
       );
     } catch (e) {

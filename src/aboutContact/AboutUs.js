@@ -15,11 +15,11 @@ export default function AboutUs() {
       <div className='col'>
         <Card>
           <CardContent className='aboutUsCard'>
-            <img src='cook.png' alt='Human' />
-            <Typography className='nameImage' variant='h4' component='h2'>
+            <img className='aboutUsImage' src='cook.png' alt='Human' />
+            <Typography className='name' variant='h4' component='h2'>
               Jeremy Cook
             </Typography>
-            <Typography className='nameImage' variant='h5'>
+            <Typography className='name' variant='h5'>
               Co-Developer & Founder
             </Typography>
             <Typography variant='body1' component='p'>
@@ -51,11 +51,11 @@ export default function AboutUs() {
         </Card>
         <Card>
           <CardContent className='aboutUsCard'>
-            <img src='shawn.jpg' alt='Human' />
-            <Typography className='nameImage' variant='h4' component='h2'>
+            <img className='aboutUsImage' src='shawn.jpg' alt='Human' />
+            <Typography className='name' variant='h4' component='h2'>
               Shawn Gay
             </Typography>
-            <Typography className='nameImage' variant='h5'>
+            <Typography className='name' variant='h5'>
               Co-Developer & Founder
             </Typography>
             <Typography variant='body1' component='p'>

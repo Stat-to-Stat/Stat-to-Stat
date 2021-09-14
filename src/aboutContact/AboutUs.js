@@ -11,13 +11,17 @@ import './styles.css';
 export default function AboutUs() {
   return (
     <div className='aboutUsContainer'>
+      <div className='aboutUsHeader'>About Us</div>
       <div className='col'>
         <Card>
           <CardContent className='aboutUsCard'>
-            <Typography variant='h4' component='h2'>
+            <img src='cook.png' alt='Human' />
+            <Typography className='name' variant='h4' component='h2'>
               Jeremy Cook
             </Typography>
-            <Typography variant='h5'>Co-developer/Founder</Typography>
+            <Typography className='name' variant='h5'>
+              Co-Developer & Founder
+            </Typography>
             <Typography variant='body1' component='p'>
               A recent graduate of Fullstack Academies Software Engineering boot
               camp, Jeremy's originally graduated from St. John's University
@@ -45,14 +49,16 @@ export default function AboutUs() {
             </a>
           </CardActions>
         </Card>
-
         <Card>
           <CardContent className='aboutUsCard'>
-            <Typography variant='h4' component='h2'>
+            <img src='shawn.jpg' alt='Human' />
+            <Typography className='name' variant='h4' component='h2'>
               Shawn Gay
             </Typography>
-            <Typography variant='h5'>Co-developer/Founder</Typography>
-            <Typography variant='body2' component='p'>
+            <Typography className='name' variant='h5'>
+              Co-Developer & Founder
+            </Typography>
+            <Typography variant='body1' component='p'>
               When Shawn is not coding you can find Shawn making his famous
               steak while jamming on his guitar. Shawn is also into body
               building. Hes also not a doctor.

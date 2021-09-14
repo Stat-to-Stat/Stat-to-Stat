@@ -34,7 +34,7 @@ export default function AboutUs() {
             <a
               href='https://github.com/JC00K'
               target='_blank'
-              style={{ textDecoration: 'none' }}
+              className='link'
               rel='noreferrer'
             >
               <Button size='small'>GitHub</Button>
@@ -42,7 +42,7 @@ export default function AboutUs() {
             <a
               href='https://www.linkedin.com/in/jeremycook1/'
               target='_blank'
-              style={{ textDecoration: 'none' }}
+              className='link'
               rel='noreferrer'
             >
               <Button size='small'>Linkedin</Button>
@@ -68,7 +68,7 @@ export default function AboutUs() {
             <a
               href='https://github.com/Shawn-Gay'
               target='_blank'
-              style={{ textDecoration: 'none' }}
+              className='link'
               rel='noreferrer'
             >
               <Button size='small'>GitHub</Button>
@@ -76,7 +76,7 @@ export default function AboutUs() {
             <a
               href='https://www.linkedin.com/in/shawn-gay/'
               target='_blank'
-              style={{ textDecoration: 'none' }}
+              className='link'
               rel='noreferrer'
             >
               <Button size='small'>Linkedin</Button>

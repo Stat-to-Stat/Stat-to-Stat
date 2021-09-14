@@ -54,7 +54,8 @@
   display: flex;
   justify-content: center;
   font-size: 50px;
-  color: hsl(220, 10%, 70%);
+  color: hsl(47, 100%, 50%);
+  font-family: 'Viga', Times, serif;
 }
 
 .name {
@@ -62,4 +63,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-family: 'Viga', Times, serif;
+}
+
+.link {
+  padding: 1em;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 auto;
+  font-family: 'Viga', Times, serif;
 }

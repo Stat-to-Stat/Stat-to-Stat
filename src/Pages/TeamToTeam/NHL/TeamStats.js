@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { singleNhlTeamRetrieval } from '../../../api/nhlApi';
+import SeasonFilter from './SeasonFilter';
 
 export default function TeamStats({ id }) {
   const [stats, setStats] = useState({});
   const [seasonStats, setSeasonStats] = useState({});
   const [seasonRank, setSeasonRank] = useState({});
   const [loading, setLoading] = useState(false);
+  const [season, setSeason] = useState('2020-2021');
 
   useEffect(() => {
+    const currentSeason = season.replace(/-|\s/g, '');
     const setArrays = async () => {
-      const teamStats = await singleNhlTeamRetrieval(id);
+      const teamStats = await singleNhlTeamRetrieval(id, currentSeason);
       setStats(teamStats);
       const seasonStatsHelper = teamStats.teamStats[0].splits[0].stat;
       const seasonRankHelper = teamStats.teamStats[0].splits[1].stat;
@@ -18,7 +21,7 @@ export default function TeamStats({ id }) {
       setLoading(true);
     };
     setArrays();
-  }, []);
+  }, [season]);
 
   console.log(stats, 'this is stats');
   if (!loading) {
@@ -42,7 +45,7 @@ export default function TeamStats({ id }) {
         <h3>City: {stats.venue.city}</h3>
       </div>
       <div>
-        <h2>Season Stats (for specified season based on dropdown option)</h2>
+        <SeasonFilter setSeason={setSeason} season={season} />
         <h3>Games Played: {seasonStats.gamesPlayed}</h3>
         <h3>
           Wins: {seasonStats.wins} ({seasonRank.wins})

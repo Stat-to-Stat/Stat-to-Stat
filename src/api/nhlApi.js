@@ -35,9 +35,11 @@ export const nhlTeamRetrieval = () => {
 };
 
 // Single Team
-export const singleNhlTeamRetrieval = (id) => {
+export const singleNhlTeamRetrieval = (id, season = '2020-2021') => {
   return axios
-    .get(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.stats`)
+    .get(
+      `https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.stats&season=${season}`
+    )
     .then((res) => {
       return res.data.teams[0];
     });

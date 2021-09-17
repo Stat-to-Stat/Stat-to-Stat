@@ -53,7 +53,7 @@ export const singleTeamRosterRetrieval = (id) => {
         rosterArr.push({
           name: player.person.fullName,
           id: player.person.id,
-          position: player.position.name
+          position: player.position.name,
         });
       }
     });
@@ -78,6 +78,7 @@ export const singleNhlPlayerRetrieval = (id) => {
 // name, jersey number, position,
 
 // Single Player Stats
+// UPDATE TO 2021-2022 ONCE REGULAR SEASON STARTS!!!!!!!
 export const singlePlayerStatRetrieval = async (id, season = 20202021) => {
   let playerStats = null;
   let playerInfo = null;

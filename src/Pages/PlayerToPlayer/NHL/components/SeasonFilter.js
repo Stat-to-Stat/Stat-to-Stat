@@ -25,7 +25,9 @@ export default function SeasonFilter({ season, setSeason }) {
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id='demo-simple-select-autowidth-label'>Season</InputLabel>
+        <InputLabel id='demo-simple-select-autowidth-label'>
+          Regular Season
+        </InputLabel>
         <Select
           labelId='demo-simple-select-autowidth-label'
           id='demo-simple-select-autowidth'

@@ -7,10 +7,14 @@ import {
   Typography,
 } from '@material-ui/core';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 export default function AboutUs() {
   return (
     <div className='aboutUsContainer'>
+      <Link to='/'>
+        <button className='homeButton'>Home</button>
+      </Link>
       <div className='aboutUsHeader'>About Us</div>
       <div className='col'>
         <Card>
@@ -24,10 +28,12 @@ export default function AboutUs() {
             </Typography>
             <Typography variant='body1' component='p'>
               A recent graduate of Fullstack Academies Software Engineering boot
-              camp, Jeremy's originally graduated from St. John's University
-              with a bachelors in Sports Management. Outside of coding, Jeremy
-              is passionate about sports, especially football (one of the
-              original drivers of the Stat to Stat concept!) and Esports.
+              camp, Jeremy originally graduated from St. John's University with
+              a bachelors in Sports Management. Outside of coding, Jeremy is
+              passionate about sports, especially football (one of the original
+              inspirations of the Stat to Stat concept!) and Esports. He is also
+              very passionate about fantasy sports as well (another inspiration
+              of the Stat to Stat concept).
             </Typography>
           </CardContent>
           <CardActions>
@@ -84,6 +90,7 @@ export default function AboutUs() {
           </CardActions>
         </Card>
       </div>
+      <div>testing</div>
     </div>
   );
 }

@@ -58,4 +58,32 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+
+.Landing-Page-Title--about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  padding: 10px;
+  color: #ffc800;
+}
+
+.aboutButton {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: #ffc800;
+  font-family: 'Viga', Times, serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.aboutButton:hover {
+  background-color: #8d8b8b;
+}
 /*# sourceMappingURL=landing.css.map */

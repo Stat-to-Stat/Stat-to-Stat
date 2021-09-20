@@ -74,3 +74,16 @@
   margin: 0 auto;
   font-family: 'Viga', Times, serif;
 }
+
+.homeButton {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: hsl(47, 100%, 50%);
+  font-family: 'Viga', Times, serif;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    background-color: rgb(141, 139, 139);
+  }
+}

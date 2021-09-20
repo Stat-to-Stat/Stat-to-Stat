@@ -49,3 +49,23 @@
     }
   }
 }
+.Landing-Page-Title--about {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  padding: 10px;
+  color: hsl(47, 100%, 50%);
+}
+
+.aboutButton {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: hsl(47, 100%, 50%);
+  font-family: 'Viga', Times, serif;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    background-color: rgb(141, 139, 139);
+  }
+}

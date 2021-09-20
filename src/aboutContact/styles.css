@@ -90,4 +90,18 @@
   margin: 0 auto;
   font-family: 'Viga', Times, serif;
 }
+
+.homeButton {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: #ffc800;
+  font-family: 'Viga', Times, serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.homeButton:hover {
+  background-color: #8d8b8b;
+}
 /*# sourceMappingURL=styles.css.map */

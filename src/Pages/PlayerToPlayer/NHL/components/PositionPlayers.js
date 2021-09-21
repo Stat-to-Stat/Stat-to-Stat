@@ -36,10 +36,6 @@ export default function PositionPlayers({ id }) {
     try {
       return (
         <div className='each-player-stats'>
-          <h2>
-            {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-            (will have option to change season)
-          </h2>
           <SeasonFilter setSeason={setSeason} season={season} />
           <img
             src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}

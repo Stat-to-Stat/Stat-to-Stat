@@ -14,7 +14,7 @@ Stat to Stat is built using Reactjs, Sass, Material UI, and is a PWA that featur
 
 ### What sports does Stat to Stat currently cover?
 
-At the moment, the NHL is the only sport that is operational. However, in this order, we plan on adding the following professional leagues to the site. NBA, MLB, NFL.
+At the moment, the NHL is the only sport that is operational. However, we plan on adding the following professional leagues to the site. NBA, MLB, NFL.
 
 ### More will be added and edited as time progresses (some of this more than likely will be moved to the about us section on the live deployed site)
 

@@ -42,9 +42,6 @@ export default function Goalies({ id }) {
     return (
       <div className='each-player-stats'>
         <div>
-          <h2>
-            {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-          </h2>
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
             <img

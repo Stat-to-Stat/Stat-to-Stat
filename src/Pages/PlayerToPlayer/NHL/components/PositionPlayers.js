@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { singlePlayerStatRetrieval } from '../../../../api/nhlApi';
 import SeasonFilter from './SeasonFilter';
 
-export default function PositionPlayers({ id }) {
+export default function PositionPlayers({ id, setCurrentPlayer }) {
   const [stats, setStats] = useState({});
   const [playerInfo, setPlayerInfo] = useState({});
   const [playerStats, setPlayerStats] = useState({});
@@ -31,45 +31,62 @@ export default function PositionPlayers({ id }) {
     setArrays();
   }, [season]);
 
-  // console.log(playerInfo.data.people[0].fullName);
   if (loading) {
+    const tableStats = {
+      'Games Played': playerStats.games,
+      'Points': playerStats.points,
+      'Goals': playerStats.goals,
+      'Assists': playerStats.assists,
+      'Shots': playerStats.shots,
+      'Hits': playerStats.hits,
+      'Blocked Shots': playerStats.blocked,
+      'Penalty Minutes': playerStats.assists,
+      'PowerPlay Goals': playerStats.powerPlayGoals,
+      'PowerPlay Points': playerStats.powerPlayPoints,
+      'Plus/Minus (+/-)': playerStats.plusMinus,
+      'TOI/Per Game': playerStats.timeOnIcePerGame,
+    }
     try {
       return (
         <div className='each-player-stats'>
-          <h2>
-            {stats.playerStats.data.stats[0].splits[0].season} Regular Season
-            (will have option to change season)
-          </h2>
           <SeasonFilter setSeason={setSeason} season={season} />
+          <div className='player-picture'>
           <img
             src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
             alt={`Human`}
-          />
-          <h3>Name: {playerInfo.fullName}</h3>
-          <h3>Height: {playerInfo.height}</h3>
-          <h3>Weight: {playerInfo.weight}lbs</h3>
+            />
+          </div>
+          <h3>{playerInfo.fullName}</h3>
+          <h3>{playerInfo.height}</h3>
+          <h3>{playerInfo.weight}lbs</h3>
           <h3>Position: {playerInfo.primaryPosition.name}</h3>
-          <h3>Current Team: {playerInfo.currentTeam.name}</h3>
+          <h3>{playerInfo.currentTeam.name}</h3>
+          <h3>{playerInfo.currentAge} years old</h3>
           <h3>
-            DOB: {playerInfo.birthDate} ({playerInfo.currentAge} years old)
+            From: {playerInfo.birthCity}, {playerInfo.birthStateProvince}
           </h3>
-          <h3>
-            Birthplace: {playerInfo.birthCity}, {playerInfo.birthStateProvince}
-          </h3>
-          <h3>Hand: {playerInfo.shootsCatches}</h3>
-          <h3>Games Played: {playerStats.games}</h3>
-          <h3>Points: {playerStats.points}</h3>
-          <h3>Goals: {playerStats.goals}</h3>
-          <h3>Assists: {playerStats.assists}</h3>
-          <h3>Shots: {playerStats.shots}</h3>
-          <h3>Hits: {playerStats.hits}</h3>
-          <h3>Blocked Shots: {playerStats.blocked}</h3>
-          <h3>Penalty Minutes: {playerStats.assists}</h3>
-          <h3>PowerPlay Goals: {playerStats.powerPlayGoals}</h3>
-          <h3>PowerPlay Points: {playerStats.powerPlayPoints}</h3>
-          <h3>Plus/Minus (+/-): {playerStats.plusMinus}</h3>
-          <h3>TOI/Per Game: {playerStats.timeOnIcePerGame}</h3>
+          <h3>Hand: {playerInfo.shootsCatches == 'R' ? "Right" : "Left"}</h3>
+          <div>
+          <table className='player-stat-table'>
+            <tbody>
+              {Object.keys(tableStats).map((key, i) => {
+                return (
+                  <tr
+                  key={i}
+                  className={`${
+                    i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
+                  }`}
+                  >
+                    <td>{key}</td>
+                    <td>{tableStats[key]}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
+        <button onClick={() => {setCurrentPlayer('')}}>Search</button>
+    </div>
       );
     } catch (e) {
       console.log(e);

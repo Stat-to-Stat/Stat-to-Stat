@@ -60,8 +60,7 @@ function NHLPlayerToPlayer() {
         <div className="nhl-players-container">
         {currentPlayerOne.id ? 
         <div style={{backgroundColor:"#00d9ff"}} className="nhl-player-stats">
-        <CompareStats id={currentPlayerOne.id} />
-        <button onClick={() => {setCurrentPlayerOne('')}}>Search</button>
+        <CompareStats id={currentPlayerOne.id} setCurrentPlayer={setCurrentPlayerOne} />
         </div> 
         : 
         <div style={{backgroundColor:"#00d9ff"}} className="nhl-player-search">
@@ -87,8 +86,7 @@ function NHLPlayerToPlayer() {
           }
         {currentPlayerTwo.id ? 
         <div style={{backgroundColor:"#ff434f"}} className="nhl-player-stats">
-        <CompareStats id={currentPlayerTwo.id} /> 
-        <button onClick={() => {setCurrentPlayerTwo('')}}>Search</button>
+        <CompareStats id={currentPlayerTwo.id} setCurrentPlayer={setCurrentPlayerTwo} /> 
         </div>
         :
         <div style={{backgroundColor:"#ff434f"}} className="nhl-player-search"> 

@@ -1,6 +1,9 @@
 .nhl-player-page-container {
   height: 100%;
-  background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34.38%, #2C2C30 61.98%, #1A1A1D 100%);
+  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77702047325.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .nhl-player-page-container .nhl-players-container {
@@ -67,7 +70,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  max-width: 40rem;
+  max-width: 20rem;
 }
 
 .nhl-player-page-container .nhl-players-container .nhl-player-search .player-each-search {
@@ -136,14 +139,14 @@
   margin: 0;
   font-size: calc(1vw + .5rem);
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .player-stat-table .player-cell-even {
-  background-color: rgba(255, 255, 255, 0.582);
+  background-color: #6edbeee9;
 }
 
 .player-stat-table .player-cell-odd {
-  background-color: rgba(226, 226, 226, 0.37);
+  background-color: #eff1f1be;
 }
 /*# sourceMappingURL=style.css.map */

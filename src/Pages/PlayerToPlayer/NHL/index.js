@@ -56,14 +56,14 @@ function NHLPlayerToPlayer() {
   if (isLoaded) {
     return (
       <div className="nhl-player-page-container">
-
+        
         <div className="nhl-players-container">
         {currentPlayerOne.id ? 
-        <div style={{backgroundColor:"#00d9ff"}} className="nhl-player-stats">
+        <div style={{backgroundColor:"#8feeffe9"}} className="nhl-player-stats">
         <CompareStats id={currentPlayerOne.id} setCurrentPlayer={setCurrentPlayerOne} />
         </div> 
         : 
-        <div style={{backgroundColor:"#00d9ff"}} className="nhl-player-search">
+        <div style={{backgroundColor:"#8feeffe9"}} className="nhl-player-search">
           <Filter
             allPlayers={allPlayers}
             singleTeamRosterRetrieval={singleTeamRosterRetrieval}
@@ -85,11 +85,11 @@ function NHLPlayerToPlayer() {
           </div>
           }
         {currentPlayerTwo.id ? 
-        <div style={{backgroundColor:"#ff434f"}} className="nhl-player-stats">
+        <div style={{backgroundColor:"#c8dbdf6e9"}} className="nhl-player-stats">
         <CompareStats id={currentPlayerTwo.id} setCurrentPlayer={setCurrentPlayerTwo} /> 
         </div>
         :
-        <div style={{backgroundColor:"#ff434f"}} className="nhl-player-search"> 
+        <div style={{backgroundColor:"#c8dbdfe9"}} className="nhl-player-search"> 
           <Filter
             allPlayers={allPlayers}
             singleTeamRosterRetrieval={singleTeamRosterRetrieval}

@@ -1,7 +1,9 @@
 .nhl-main-container {
   width: 100%;
-  min-height: 100%;
-  background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282C 0%, #1A1A1D 34.38%, #2C2C30 61.98%, #1A1A1D 100%);
+  height: 100%;
+  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77702047325.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,7 +15,6 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  overflow: hidden;
 }
 
 .nhl-main-container .nhl-title {
@@ -21,12 +22,12 @@
   text-align: center;
   margin: 1rem 0 1rem 0;
   font-size: 3rem;
-  color: #ffc800;
-  font-family: "Viga", Times, serif;
+  color: black;
+  font-family: 'Viga', Times, serif;
 }
 
 .nhl-main-container .nhl-compare-container {
-  width: 100%;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,7 +41,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 2rem;
+  margin: 10rem;
 }
 
 .nhl-main-container .nhl-compare-container .nhl-compare-link-container {
@@ -54,17 +55,17 @@
 .nhl-main-container .nhl-compare-container .nhl-compare-link-container .compare-link {
   padding: 1rem 0 1rem 0;
   border-radius: 25px;
-  margin: 1rem;
-  background-color: #ffc800;
+  margin: 5rem;
+  background-color: black;
   display: -ms-grid;
   display: grid;
   place-items: center;
 }
 
 .nhl-main-container .nhl-compare-container .nhl-compare-link-container .compare-link div {
-  font-size: 1rem;
-  color: black;
-  font-family: "Viga", Times, serif;
+  font-size: 2rem;
+  color: silver;
+  font-family: 'Viga', Times, serif;
   width: 100%;
   text-align: center;
   text-decoration: none;

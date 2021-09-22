@@ -3,6 +3,8 @@ import Search from './NHL/Search';
 import { nhlTeamRetrieval } from '../../api/nhlApi';
 import TeamStats from './NHL/TeamStats';
 
+import "./style.css"
+
 export default function NHLTeamToTeam() {
   const [currentTeam, setCurrentTeam] = useState('');
   const [currentTeamOne, setCurrentTeamOne] = useState('');
@@ -34,24 +36,32 @@ export default function NHLTeamToTeam() {
   }, []);
   if (isLoaded) {
     return (
-      <div>
-        {currentTeamOne.id ? (
+      <div className="team-to-team-page-container nhl-players-container">
+        {currentTeamOne.id ? 
+        <div style={{backgroundColor:"#8feeffe9"}}>
           <TeamStats id={currentTeamOne.id} />
-        ) : (
+        </div>
+           : 
+          <div style={{backgroundColor:"#8feeffe9"}} className="nhl-team-search">
           <Search
-            currentTeam={currentTeam}
-            setCurrentTeam={setCurrentTeamOne}
-            teamList={teamList}
+          currentTeam={currentTeam}
+          setCurrentTeam={setCurrentTeamOne}
+          teamList={teamList}
           />
-        )}
+          </div>
+        }
         {currentTeamTwo.id ? (
-          <TeamStats id={currentTeamTwo.id} />
+          <div style={{backgroundColor:"#c8dbdfe9"}}>
+            <TeamStats id={currentTeamTwo.id} />
+          </div>
         ) : (
+          <div style={{backgroundColor:"#c8dbdfe9"}} className="nhl-team-search">
           <Search
             currentTeam={currentTeam}
             setCurrentTeam={setCurrentTeamTwo}
             teamList={teamList}
-          />
+            />
+          </div>
         )}
       </div>
     );

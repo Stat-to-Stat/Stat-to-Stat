@@ -1,0 +1,24 @@
+.team-to-team-page-container{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77702047325.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+    .nhl-team-search{
+        padding: 0px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 20rem;
+        .team-each-search{
+            display: grid;
+            place-items: center;
+        }
+    }
+}

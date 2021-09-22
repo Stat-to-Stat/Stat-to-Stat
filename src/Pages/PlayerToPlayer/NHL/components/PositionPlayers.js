@@ -88,9 +88,11 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
         <button onClick={() => {setCurrentPlayer('')}}>Search</button>
     </div>
       );
-    } catch (e) {
-      console.log(e);
-      return <div>Error loading player</div>;
+    } catch {
+      return <div>
+        Error loading player
+        <button onClick={() => {setCurrentPlayer('')}}>Search</button>
+        </div>;
     }
   } else {
     return <div>Loading</div>;

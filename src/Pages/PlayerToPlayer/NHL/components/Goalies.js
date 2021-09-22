@@ -39,14 +39,16 @@ export default function Goalies({ id, setCurrentPlayer }) {
       'PowerPlay Saves': playerStats.powerPlaySaves,
       'PowerPlay Shots Against': playerStats.powerPlayShots,
     };
-    return (
-      <div className='each-player-stats'>
+    try {
+      
+      return (
+        <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
             <img
               src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
               alt={`Human`}
-            />
+              />
           </div>
           <h3>{playerInfo.fullName}</h3>
           <h3>{playerInfo.height}</h3>
@@ -65,10 +67,10 @@ export default function Goalies({ id, setCurrentPlayer }) {
               {Object.keys(tableStats).map((key, i) => {
                 return (
                   <tr
-                    key={i}
-                    className={`${
-                      i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
-                    }`}
+                  key={i}
+                  className={`${
+                    i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
+                  }`}
                   >
                     <td>{key}</td>
                     <td>{tableStats[key]}</td>
@@ -81,6 +83,12 @@ export default function Goalies({ id, setCurrentPlayer }) {
         <button onClick={() => {setCurrentPlayer('')}}>Search</button>
       </div>
     );
+  } catch {
+    return <div>
+      Error loading player
+      <button onClick={() => {setCurrentPlayer('')}}>Search</button>
+      </div>;
+  }
   } else {
     return <div>Loading</div>;
   }

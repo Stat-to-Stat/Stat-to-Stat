@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { singlePlayerStatRetrieval } from '../../../../api/nhlApi';
 import SeasonFilter from './SeasonFilter';
 
-export default function Goalies({ id }) {
+export default function Goalies({ id, setCurrentPlayer }) {
   const [stats, setStats] = useState({});
   const [playerInfo, setPlayerInfo] = useState({});
   const [playerStats, setPlayerStats] = useState({});
@@ -48,19 +48,17 @@ export default function Goalies({ id }) {
               alt={`Human`}
             />
           </div>
-          <h3>Name: {playerInfo.fullName}</h3>
-          <h3>Height: {playerInfo.height}</h3>
-          <h3>Weight: {playerInfo.weight}lbs</h3>
-          <h3>Position: {playerInfo.primaryPosition.name}</h3>
-          <h3>Current Team: {playerInfo.currentTeam.name}</h3>
+          <h3>{playerInfo.fullName}</h3>
+          <h3>{playerInfo.height}</h3>
+          <h3>{playerInfo.weight}lbs</h3>
+          <h3>{playerInfo.primaryPosition.name}</h3>
+          <h3>{playerInfo.currentTeam.name}</h3>
+          <h3>{playerInfo.currentAge} years old</h3>
           <h3>
-            DOB: {playerInfo.birthDate} ({playerInfo.currentAge} years old)
-          </h3>
-          <h3>
-            Birthplace: {playerInfo.birthCity},{' '}
+            From: {playerInfo.birthCity},{' '}
             {playerInfo.birthStateProvince || playerInfo.birthCountry}
           </h3>
-          <h3>Hand: {playerInfo.shootsCatches}</h3>
+          <h3>Hand: {playerInfo.shootsCatches === 'R' ? "Right" : "Left"}</h3>
         <div>
           <table className='player-stat-table'>
             <tbody>
@@ -80,6 +78,7 @@ export default function Goalies({ id }) {
             </tbody>
           </table>
         </div>
+        <button onClick={() => {setCurrentPlayer('')}}>Search</button>
       </div>
     );
   } else {

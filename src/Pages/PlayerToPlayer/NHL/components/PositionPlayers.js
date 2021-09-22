@@ -65,7 +65,7 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
           <h3>
             From: {playerInfo.birthCity}, {playerInfo.birthStateProvince}
           </h3>
-          <h3>Hand: {playerInfo.shootsCatches == 'R' ? "Right" : "Left"}</h3>
+          <h3>Hand: {playerInfo.shootsCatches === 'R' ? "Right" : "Left"}</h3>
           <div>
           <table className='player-stat-table'>
             <tbody>

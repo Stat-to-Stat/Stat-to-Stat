@@ -4,18 +4,13 @@ import SingleSport from './SingleSport';
 export default function Sports() {
   return (
     <div className='landing-page-sports-container'>
-      <SingleSport
-        link='/NHL'
-        img='NHL'
-        backgroundColor='hsla(0, 0%, 100%, 0.5)'
-      />
+      <SingleSport link='/NHL' img='NHL' />
       <SingleSport
         // link='/NBA'
         img='NBA'
-        backgroundColor='hsla(0, 0%, 100%, 0.5)'
       />
-      <SingleSport />
-      <SingleSport />
+      <SingleSport img='NFL' />
+      <SingleSport img='MLB' />
     </div>
   );
 }

@@ -14,7 +14,7 @@ function Search({ currentTeam, teamList, setCurrentTeam }) {
     } else setCurrentTeam('');
   };
   return (
-    <div>
+    <div className="team-each-search">
       <Autocomplete
         id='highlights-demo'
         style={{ width: 300 }}
@@ -36,7 +36,7 @@ function Search({ currentTeam, teamList, setCurrentTeam }) {
           }
         }}
         onChange={selectedTeam}
-        autoSelect={true}
+        autoSelect={false}
         forcePopupIcon={currentTeam.name ? true : false}
         options={teamList}
         getOptionLabel={(option) => option.name}

@@ -97,7 +97,7 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
     } catch {
       return (
         <div>
-          Player did not play in the selected season. Please try again
+          Player did not accrue stats in the selected season. Please try again
           <button
             onClick={() => {
               setCurrentPlayer('');

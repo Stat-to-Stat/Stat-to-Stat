@@ -34,26 +34,26 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
   if (loading) {
     const tableStats = {
       'Games Played': playerStats.games,
-      'Points': playerStats.points,
-      'Goals': playerStats.goals,
-      'Assists': playerStats.assists,
-      'Shots': playerStats.shots,
-      'Hits': playerStats.hits,
+      Points: playerStats.points,
+      Goals: playerStats.goals,
+      Assists: playerStats.assists,
+      Shots: playerStats.shots,
+      Hits: playerStats.hits,
       'Blocked Shots': playerStats.blocked,
       'Penalty Minutes': playerStats.assists,
       'PowerPlay Goals': playerStats.powerPlayGoals,
       'PowerPlay Points': playerStats.powerPlayPoints,
       'Plus/Minus (+/-)': playerStats.plusMinus,
       'TOI/Per Game': playerStats.timeOnIcePerGame,
-    }
+    };
     try {
       return (
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
-          <img
-            src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
-            alt={`Human`}
+            <img
+              src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+              alt={`Human`}
             />
           </div>
           <h3>{playerInfo.fullName}</h3>
@@ -65,34 +65,48 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
           <h3>
             From: {playerInfo.birthCity}, {playerInfo.birthStateProvince}
           </h3>
-          <h3>Hand: {playerInfo.shootsCatches === 'R' ? "Right" : "Left"}</h3>
+          <h3>Hand: {playerInfo.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
           <div>
-          <table className='player-stat-table'>
-            <tbody>
-              {Object.keys(tableStats).map((key, i) => {
-                return (
-                  <tr
-                  key={i}
-                  className={`${
-                    i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
-                  }`}
-                  >
-                    <td>{key}</td>
-                    <td>{tableStats[key]}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+            <table className='player-stat-table'>
+              <tbody>
+                {Object.keys(tableStats).map((key, i) => {
+                  return (
+                    <tr
+                      key={i}
+                      className={`${
+                        i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
+                      }`}
+                    >
+                      <td>{key}</td>
+                      <td>{tableStats[key]}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <button
+            onClick={() => {
+              setCurrentPlayer('');
+            }}
+          >
+            New Player
+          </button>
         </div>
-        <button onClick={() => {setCurrentPlayer('')}}>Search</button>
-    </div>
       );
     } catch {
-      return <div>
-        Error loading player
-        <button onClick={() => {setCurrentPlayer('')}}>Search</button>
-        </div>;
+      return (
+        <div>
+          Player did not play in the selected season. Please try again
+          <button
+            onClick={() => {
+              setCurrentPlayer('');
+            }}
+          >
+            Search
+          </button>
+        </div>
+      );
     }
   } else {
     return <div>Loading</div>;

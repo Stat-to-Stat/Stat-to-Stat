@@ -40,7 +40,6 @@ export default function Goalies({ id, setCurrentPlayer }) {
       'PowerPlay Shots Against': playerStats.powerPlayShots,
     };
     try {
-      
       return (
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
@@ -48,7 +47,7 @@ export default function Goalies({ id, setCurrentPlayer }) {
             <img
               src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
               alt={`Human`}
-              />
+            />
           </div>
           <h3>{playerInfo.fullName}</h3>
           <h3>{playerInfo.height}</h3>
@@ -60,35 +59,49 @@ export default function Goalies({ id, setCurrentPlayer }) {
             From: {playerInfo.birthCity},{' '}
             {playerInfo.birthStateProvince || playerInfo.birthCountry}
           </h3>
-          <h3>Hand: {playerInfo.shootsCatches === 'R' ? "Right" : "Left"}</h3>
-        <div>
-          <table className='player-stat-table'>
-            <tbody>
-              {Object.keys(tableStats).map((key, i) => {
-                return (
-                  <tr
-                  key={i}
-                  className={`${
-                    i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
-                  }`}
-                  >
-                    <td>{key}</td>
-                    <td>{tableStats[key]}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <h3>Hand: {playerInfo.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
+          <div>
+            <table className='player-stat-table'>
+              <tbody>
+                {Object.keys(tableStats).map((key, i) => {
+                  return (
+                    <tr
+                      key={i}
+                      className={`${
+                        i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
+                      }`}
+                    >
+                      <td>{key}</td>
+                      <td>{tableStats[key]}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <button
+            onClick={() => {
+              setCurrentPlayer('');
+            }}
+          >
+            New Player
+          </button>
         </div>
-        <button onClick={() => {setCurrentPlayer('')}}>Search</button>
-      </div>
-    );
-  } catch {
-    return <div>
-      Error loading player
-      <button onClick={() => {setCurrentPlayer('')}}>Search</button>
-      </div>;
-  }
+      );
+    } catch {
+      return (
+        <div>
+          Player did not accrue stats in the selected season. Please try again
+          <button
+            onClick={() => {
+              setCurrentPlayer('');
+            }}
+          >
+            Search
+          </button>
+        </div>
+      );
+    }
   } else {
     return <div>Loading</div>;
   }

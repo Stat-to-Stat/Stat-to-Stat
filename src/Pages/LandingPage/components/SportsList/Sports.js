@@ -7,7 +7,7 @@ export default function Sports() {
       <SingleSport
         link='/NHL'
         img='NHL'
-        backgroundColor='hsla(0, 0%, 100%, 0.5'
+        backgroundColor='hsla(0, 0%, 100%, 0.5)'
       />
       <SingleSport />
       <SingleSport />

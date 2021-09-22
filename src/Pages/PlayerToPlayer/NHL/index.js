@@ -56,7 +56,6 @@ function NHLPlayerToPlayer() {
   if (isLoaded) {
     return (
       <div className="nhl-player-page-container">
-        
         <div className="nhl-players-container">
         {currentPlayerOne.id ? 
         <div style={{backgroundColor:"#8feeffe9"}} className="nhl-player-stats">

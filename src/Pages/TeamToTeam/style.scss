@@ -6,19 +6,58 @@
     background-position: center;
     background-repeat: no-repeat;
 
-
-    .nhl-team-search{
-        padding: 0px;
-        padding-bottom: 10px;
-        border-radius: 5px;
+    .nhl-teams-container{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        max-width: 20rem;
-        .team-each-search{
-            display: grid;
-            place-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+
+        h3, h2, h4{
+            margin: 0;
+            font-size: 14px;
         }
+    
+        .MuiFormControl-root{
+            margin: 0 !important;
+            margin-top: 10px !important;
+        }
+
+        .nhl-team-search{
+            padding: 0px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            max-width: 20rem;
+            .team-each-search{
+                display: grid;
+                place-items: center;
+            }
+        }
+
+        .nhl-team-stats{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 40rem;
+            
+
+            .each-team-stats{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h3{
+                    font-size: calc(1vw + .5rem);
+                }
+            }
+        }
+    
     }
 }

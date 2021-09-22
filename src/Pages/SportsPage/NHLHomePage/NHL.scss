@@ -49,3 +49,20 @@
     }
   }
 }
+
+.home-button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-family: 'Viga', Times, serif;
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: rgba(254, 255, 255, 0.842);
+  }
+}

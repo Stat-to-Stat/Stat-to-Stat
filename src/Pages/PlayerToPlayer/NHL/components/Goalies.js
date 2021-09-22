@@ -61,7 +61,6 @@ export default function Goalies({ id }) {
             {playerInfo.birthStateProvince || playerInfo.birthCountry}
           </h3>
           <h3>Hand: {playerInfo.shootsCatches}</h3>
-        <div>
           <table className='player-stat-table'>
             <tbody>
               {Object.keys(tableStats).map((key, i) => {

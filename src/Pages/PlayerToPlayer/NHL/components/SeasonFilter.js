@@ -1,5 +1,4 @@
 import React from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -24,18 +23,9 @@ export default function SeasonFilter({ season, setSeason }) {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id='demo-simple-select-autowidth-label'>
-          Regular Season
-        </InputLabel>
-        <Select
-          labelId='demo-simple-select-autowidth-label'
-          id='demo-simple-select-autowidth'
-          value={season}
-          onChange={handleChange}
-          autoWidth
-          label='Age'
-        >
+      <FormControl>
+        <h2>Regular Season</h2>
+        <Select value={season} onChange={handleChange}>
           {years.map((year) => (
             <MenuItem value={year}>{year}</MenuItem>
           ))}

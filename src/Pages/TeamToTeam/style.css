@@ -7,7 +7,34 @@
   background-repeat: no-repeat;
 }
 
-.team-to-team-page-container .nhl-team-search {
+.team-to-team-page-container .nhl-teams-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.team-to-team-page-container .nhl-teams-container h3, .team-to-team-page-container .nhl-teams-container h2, .team-to-team-page-container .nhl-teams-container h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.team-to-team-page-container .nhl-teams-container .MuiFormControl-root {
+  margin: 0 !important;
+  margin-top: 10px !important;
+}
+
+.team-to-team-page-container .nhl-teams-container .nhl-team-search {
   padding: 0px;
   padding-bottom: 10px;
   border-radius: 5px;
@@ -25,9 +52,46 @@
   max-width: 20rem;
 }
 
-.team-to-team-page-container .nhl-team-search .team-each-search {
+.team-to-team-page-container .nhl-teams-container .nhl-team-search .team-each-search {
   display: -ms-grid;
   display: grid;
   place-items: center;
+}
+
+.team-to-team-page-container .nhl-teams-container .nhl-team-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.team-to-team-page-container .nhl-teams-container .nhl-team-stats .each-team-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.team-to-team-page-container .nhl-teams-container .nhl-team-stats .each-team-stats h3 {
+  font-size: calc(1vw + .5rem);
 }
 /*# sourceMappingURL=style.css.map */

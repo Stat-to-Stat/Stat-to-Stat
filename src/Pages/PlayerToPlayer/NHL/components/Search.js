@@ -9,15 +9,8 @@ import {
 } from '../../../../api/nhlApi';
 
 function Search({currentTeam, playerList, setCurrentPlayer, position}) {
-    //   const [sortedPlayers, setSortedPlayers] = useState([]);
       const [isOpen, setIsOpen] = useState(false);
-      
-    //   useEffect(() => {
-    //         const curlist = nhlPlayerRetrieval()
-    //         setTimeout(() => {setSortedPlayers(curlist.sort())}, 2000)
-          
-    // }, [])
-    
+
       const selectedPlayer = (event, value) => {
         if (!!value) {
           setIsOpen(false)

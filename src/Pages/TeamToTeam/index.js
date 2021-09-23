@@ -36,9 +36,10 @@ export default function NHLTeamToTeam() {
   }, []);
   if (isLoaded) {
     return (
-      <div className="team-to-team-page-container nhl-players-container">
+      <div className="team-to-team-page-container ">
+        <div className="nhl-teams-container">
         {currentTeamOne.id ? 
-        <div style={{backgroundColor:"#8feeffe9"}}>
+        <div style={{backgroundColor:"#8feeffe9"}} className="nhl-team-stats">
           <TeamStats id={currentTeamOne.id} />
         </div>
            : 
@@ -51,7 +52,7 @@ export default function NHLTeamToTeam() {
           </div>
         }
         {currentTeamTwo.id ? (
-          <div style={{backgroundColor:"#c8dbdfe9"}}>
+          <div style={{backgroundColor:"#c8dbdfe9"}} className="nhl-team-stats">
             <TeamStats id={currentTeamTwo.id} />
           </div>
         ) : (
@@ -63,6 +64,7 @@ export default function NHLTeamToTeam() {
             />
           </div>
         )}
+        </div>
       </div>
     );
   } else {

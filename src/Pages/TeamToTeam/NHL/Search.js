@@ -17,7 +17,7 @@ function Search({ currentTeam, teamList, setCurrentTeam }) {
     <div className="team-each-search">
       <Autocomplete
         id='highlights-demo'
-        style={{ width: 300 }}
+        style={{ width: 175 }}
         onOpen={() => {
           if (teamList.length < 60) {
             setIsOpen(true);

@@ -20,4 +20,10 @@ At the moment, the NHL is the only sport that is operational. However, we plan o
 
 ### Things to be worked on as the site grows
 
-NHL - Getting current Coaches, Adjusting players team to match the team they played with in a selected season
+NHL - Getting current Coaches
+NHL - Adding Team Filters such as by division, conference, etc
+NHL - Incorporate stats from playoffs and Stanley Cup Wins
+
+### How to contact us?
+
+Our contact information is available in the about us section of the live site.

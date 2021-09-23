@@ -14,7 +14,6 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
     const setArrays = async () => {
       const playerStats = await singlePlayerStatRetrieval(id, currentSeason);
       setStats(playerStats);
-      console.log(playerStats);
       try {
         const playerStatsHelper =
           playerStats.playerStats.data.stats[0].splits[0].stat;
@@ -22,7 +21,6 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
         setPlayerInfo(playerInfoHelper);
         setPlayerStats(playerStatsHelper);
       } catch (err) {
-        console.log("Didn't play in selected season");
         setPlayerInfo({});
         setPlayerStats({});
       }
@@ -32,21 +30,21 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
   }, [season]);
 
   if (loading) {
-    const tableStats = {
-      'Games Played': playerStats.games,
-      Points: playerStats.points,
-      Goals: playerStats.goals,
-      Assists: playerStats.assists,
-      Shots: playerStats.shots,
-      Hits: playerStats.hits,
-      'Blocked Shots': playerStats.blocked,
-      'Penalty Minutes': playerStats.assists,
-      'PowerPlay Goals': playerStats.powerPlayGoals,
-      'PowerPlay Points': playerStats.powerPlayPoints,
-      'Plus/Minus (+/-)': playerStats.plusMinus,
-      'TOI/Per Game': playerStats.timeOnIcePerGame,
-    };
     try {
+      const tableStats = {
+        'Games Played': playerStats.games,
+        Points: playerStats.points,
+        Goals: playerStats.goals,
+        Assists: playerStats.assists,
+        Shots: playerStats.shots,
+        Hits: playerStats.hits,
+        'Blocked Shots': playerStats.blocked,
+        'Penalty Minutes': playerStats.assists,
+        'PowerPlay Goals': playerStats.powerPlayGoals,
+        'PowerPlay Points': playerStats.powerPlayPoints,
+        'Plus/Minus (+/-)': playerStats.plusMinus,
+        'TOI/Per Game': playerStats.timeOnIcePerGame,
+      };
       return (
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
@@ -86,6 +84,7 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
             </table>
           </div>
           <button
+            className='player-text'
             onClick={() => {
               setCurrentPlayer('');
             }}
@@ -96,9 +95,11 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
       );
     } catch {
       return (
-        <div>
-          Player did not accrue stats in the selected season. Please try again
+        <div className='player-text'>
+          Player did not play in the selected season or is entering their rookie
+          season. Please try again
           <button
+            className='player-text'
             onClick={() => {
               setCurrentPlayer('');
             }}
@@ -109,6 +110,6 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
       );
     }
   } else {
-    return <div>Loading</div>;
+    return <div className='player-text'>Loading</div>;
   }
 }

@@ -70,7 +70,6 @@
       border-radius: 5px;
       width: 100%;
       max-width: 40rem;
-
       .each-player-stats {
         display: flex;
         flex-direction: column;
@@ -125,4 +124,8 @@
   &:hover {
     background-color: rgba(254, 255, 255, 0.842);
   }
+}
+
+.player-text {
+  font-family: 'Viga', Times, serif;
 }

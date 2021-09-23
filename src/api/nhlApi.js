@@ -77,7 +77,6 @@ export const singleNhlPlayerRetrieval = (id) => {
     });
   console.log(rosterArr);
 };
-// name, jersey number, position,
 
 // Single Player Stats
 // UPDATE TO 2021-2022 ONCE REGULAR SEASON STARTS!!!!!!!
@@ -98,7 +97,3 @@ export const singlePlayerStatRetrieval = async (id, season = 20202021) => {
     });
   return { playerStats, playerInfo };
 };
-// pretty much every stat that is listed. If they made the postseason, show their postseason stats as well
-
-// Player Images
-// nhl.bamcontent.com/images/headshots/current/168x168/8474573.jpg

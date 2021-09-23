@@ -34,13 +34,13 @@
       place-items: center;
       transition: 0.5s;
       &:hover {
-        img {
-          max-height: 100%;
-        }
+        transform: scale(2);
       }
       img {
-        max-width: 90%;
-        max-height: 80%;
+        cursor: pointer;
+        filter: grayscale(100%);
+        max-width: 200px;
+        max-height: 200px;
         margin: 0;
         transition: 0.5s;
       }
@@ -65,5 +65,26 @@
   text-align: center;
   &:hover {
     background-color: rgb(141, 139, 139);
+  }
+}
+
+.coming-soon {
+  position: relative;
+  &:before {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    // background-color: rgba(243, 0, 0, 0.473);
+    color: red;
+    text-align: center;
+    pointer-events: none;
+    content: 'Coming Soon';
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Viga', Times, serif;
+    transform: rotate(-45deg);
+    z-index: 10;
+    width: 250%;
+    height: 100%;
   }
 }

@@ -45,13 +45,17 @@
   transition: 0.5s;
 }
 
-.landing-page-container .landing-page-sports-container .landing-page-sport-logo:hover img {
-  max-height: 100%;
+.landing-page-container .landing-page-sports-container .landing-page-sport-logo:hover {
+  -webkit-transform: scale(2);
+          transform: scale(2);
 }
 
 .landing-page-container .landing-page-sports-container .landing-page-sport-logo img {
-  max-width: 90%;
-  max-height: 80%;
+  cursor: pointer;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  max-width: 200px;
+  max-height: 200px;
   margin: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -83,5 +87,28 @@
 
 .aboutButton:hover {
   background-color: #8d8b8b;
+}
+
+.coming-soon {
+  position: relative;
+}
+
+.coming-soon:before {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  color: red;
+  text-align: center;
+  pointer-events: none;
+  content: 'Coming Soon';
+  font-weight: bold;
+  font-size: 30px;
+  font-family: 'Viga', Times, serif;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  z-index: 10;
+  width: 250%;
+  height: 100%;
 }
 /*# sourceMappingURL=landing.css.map */

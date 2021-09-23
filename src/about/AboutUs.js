@@ -65,9 +65,9 @@ export default function AboutUs() {
               Co-Developer & Founder
             </Typography>
             <Typography variant='body1' component='p'>
-              When Shawn is not coding you can find Shawn making his famous
-              steak while jamming on his guitar. Shawn is also into body
-              building. Hes also not a doctor.
+              When Shawn is not coding you can find him in the kitchen cooking some of his favorites dishes.
+              Shawn's favorite food is steak. His favorite down time hobby is working out and lifting weights
+              in the gym. 
             </Typography>
           </CardContent>
           <CardActions>

@@ -29,8 +29,8 @@ export default function TeamStats({ id }) {
   }
 
   const gridStatsLayout = {
-    'Wins': `${seasonStats.wins} (${seasonRank.wins})`,
-    'Losses': `${seasonStats.losses} (${seasonRank.losses})`,
+    Wins: `${seasonStats.wins} (${seasonRank.wins})`,
+    Losses: `${seasonStats.losses} (${seasonRank.losses})`,
     'Overtime (losses)': `${seasonStats.ot} (${seasonRank.ot})`,
     'Total Points': `${seasonStats.pts} (${seasonRank.pts})`,
     'Faceoff Win %': `${seasonStats.faceOffWinPercentage} (
@@ -49,10 +49,10 @@ export default function TeamStats({ id }) {
       ${seasonRank.powerPlayPercentage})`,
     'Penalty Kill %': `${seasonStats.penaltyKillPercentage} (
       ${seasonRank.penaltyKillPercentage})`,
-  }
+  };
 
   return (
-    <div className="each-team-stats">
+    <div className='each-team-stats'>
       <SeasonFilter setSeason={setSeason} season={season} />
       <img
         src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${id}.svg`}
@@ -61,30 +61,29 @@ export default function TeamStats({ id }) {
           width: '170px',
         }}
       />
-        <h3>{stats.name}</h3>
-        <h3>Divsion: {stats.division.name}</h3>
-        <h3>Conference: {stats.conference.name}</h3>
-        <h3>First Played: {stats.firstYearOfPlay}</h3>
-        <h3>Arena: {stats.venue.name}</h3>
-        <h3>City: {stats.venue.city}</h3>
-        <h3>Games Played: {seasonStats.gamesPlayed}</h3>
-        <table className='player-stat-table'>
-            <tbody>
-              {Object.keys(gridStatsLayout).map((key, i) => {
-                return (
-                  <tr
-                  key={i}
-                  className={`${
-                    i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
-                  }`}
-                  >
-                    <td>{key}</td>
-                    <td>{gridStatsLayout[key]}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      <h3>{stats.name}</h3>
+      <h3>Divsion: {stats.division.name}</h3>
+      <h3>Conference: {stats.conference.name}</h3>
+      <h3>First Played: {stats.firstYearOfPlay}</h3>
+      <h3>Arena: {stats.venue.name}</h3>
+      <h3>City: {stats.venue.city}</h3>
+      <table className='player-stat-table'>
+        <tbody>
+          {Object.keys(gridStatsLayout).map((key, i) => {
+            return (
+              <tr
+                key={i}
+                className={`${
+                  i % 2 === 0 ? 'player-cell-even' : 'player-cell-odd'
+                }`}
+              >
+                <td>{key}</td>
+                <td>{gridStatsLayout[key]}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }

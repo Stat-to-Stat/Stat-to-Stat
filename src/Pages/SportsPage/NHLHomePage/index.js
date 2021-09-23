@@ -7,10 +7,10 @@ import Compare from './Components/Compare';
 export default function NHLHomePage() {
   return (
     <div className='nhl-main-container'>
+      <Title />
       <Link to='/'>
         <button className='home-button'>Home</button>
       </Link>
-      <Title />
       <Compare />
     </div>
   );

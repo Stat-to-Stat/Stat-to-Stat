@@ -170,4 +170,8 @@
 .home-button:hover {
   background-color: rgba(254, 255, 255, 0.842);
 }
+
+.player-text {
+  font-family: 'Viga', Times, serif;
+}
 /*# sourceMappingURL=style.css.map */

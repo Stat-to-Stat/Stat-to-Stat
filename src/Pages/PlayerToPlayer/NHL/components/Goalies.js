@@ -14,32 +14,37 @@ export default function Goalies({ id, setCurrentPlayer }) {
     const setArrays = async () => {
       const playerStats = await singlePlayerStatRetrieval(id, currentSeason);
       setStats(playerStats);
-      const playerStatsHelper =
-        playerStats.playerStats.data.stats[0].splits[0].stat;
-      const playerInfoHelper = playerStats.playerInfo.data.people[0];
-      setPlayerInfo(playerInfoHelper);
-      setPlayerStats(playerStatsHelper);
-      setLoading(true);
+      try {
+        const playerStatsHelper =
+          playerStats.playerStats.data.stats[0].splits[0].stat;
+        const playerInfoHelper = playerStats.playerInfo.data.people[0];
+        setPlayerInfo(playerInfoHelper);
+        setPlayerStats(playerStatsHelper);
+      } catch (err) {
+        setLoading(true);
+        setPlayerInfo({});
+        setPlayerStats({});
+      }
     };
     setArrays();
   }, [season]);
 
   if (loading) {
-    const tableStats = {
-      'Games Played': playerStats.games,
-      'Games Started': playerStats.gamesStarted,
-      'Goals Against Average': playerStats.goalAgainstAverage.toFixed(2),
-      'Goals Against': playerStats.goalsAgainst,
-      Wins: playerStats.wins,
-      Losses: playerStats.losses,
-      'Overtime Losses': playerStats.ot,
-      'Save Percentage': playerStats.savePercentage,
-      Saves: playerStats.saves,
-      'Shots Against': playerStats.shotsAgainst,
-      'PowerPlay Saves': playerStats.powerPlaySaves,
-      'PowerPlay Shots Against': playerStats.powerPlayShots,
-    };
     try {
+      const tableStats = {
+        'Games Played': playerStats.games,
+        'Games Started': playerStats.gamesStarted,
+        'Goals Against Average': playerStats.goalAgainstAverage.toFixed(2),
+        'Goals Against': playerStats.goalsAgainst,
+        Wins: playerStats.wins,
+        Losses: playerStats.losses,
+        'Overtime Losses': playerStats.ot,
+        'Save Percentage': playerStats.savePercentage,
+        Saves: playerStats.saves,
+        'Shots Against': playerStats.shotsAgainst,
+        'PowerPlay Saves': playerStats.powerPlaySaves,
+        'PowerPlay Shots Against': playerStats.powerPlayShots,
+      };
       return (
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
@@ -80,6 +85,7 @@ export default function Goalies({ id, setCurrentPlayer }) {
             </table>
           </div>
           <button
+            className='player-text'
             onClick={() => {
               setCurrentPlayer('');
             }}
@@ -90,9 +96,11 @@ export default function Goalies({ id, setCurrentPlayer }) {
       );
     } catch {
       return (
-        <div>
-          Player did not accrue stats in the selected season. Please try again
+        <div className='player-text'>
+          Player did not play in the selected season or is entering their rookie
+          season. Please try again
           <button
+            className='player-text'
             onClick={() => {
               setCurrentPlayer('');
             }}

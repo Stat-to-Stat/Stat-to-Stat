@@ -14,7 +14,6 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
     const setArrays = async () => {
       const playerStats = await singlePlayerStatRetrieval(id, currentSeason);
       setStats(playerStats);
-      console.log(playerStats);
       try {
         const playerStatsHelper =
           playerStats.playerStats.data.stats[0].splits[0].stat;
@@ -22,7 +21,6 @@ export default function PositionPlayers({ id, setCurrentPlayer }) {
         setPlayerInfo(playerInfoHelper);
         setPlayerStats(playerStatsHelper);
       } catch (err) {
-        console.log("Didn't play in selected season");
         setPlayerInfo({});
         setPlayerStats({});
       }

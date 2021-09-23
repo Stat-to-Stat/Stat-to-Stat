@@ -34,8 +34,3 @@ export default function SeasonFilter({ season, setSeason }) {
     </div>
   );
 }
-// Season
-// Have menu to show all seasons player accrued stats
-// Display correct stats when specific seasons are selected
-// Should also update teams if player was on a different team in a given season
-// If player played a different position in a given season, that should be properly reflected as well

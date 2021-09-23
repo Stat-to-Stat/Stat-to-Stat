@@ -24,7 +24,9 @@
   height: 100%;
 }
 
-.team-to-team-page-container .nhl-teams-container h3, .team-to-team-page-container .nhl-teams-container h2, .team-to-team-page-container .nhl-teams-container h4 {
+.team-to-team-page-container .nhl-teams-container h3,
+.team-to-team-page-container .nhl-teams-container h2,
+.team-to-team-page-container .nhl-teams-container h4 {
   margin: 0;
   font-size: 14px;
 }
@@ -92,6 +94,35 @@
 }
 
 .team-to-team-page-container .nhl-teams-container .nhl-team-stats .each-team-stats h3 {
-  font-size: calc(1vw + .5rem);
+  font-size: calc(1vw + 0.5rem);
+}
+
+.home-button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-family: 'Viga', Times, serif;
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.home-button:hover {
+  background-color: rgba(254, 255, 255, 0.842);
+}
+
+.nhl-title {
+  width: 100%;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  font-size: 3rem;
+  color: black;
+  font-family: 'Viga', Times, serif;
+  position: absolute;
 }
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,7 @@ import {
   singleTeamRosterRetrieval,
 } from '../../../api/nhlApi';
 import CompareStats from './components/CompareStats';
+import { Link } from 'react-router-dom';
 
 import './style.css';
 
@@ -55,66 +56,87 @@ function NHLPlayerToPlayer() {
 
   if (isLoaded) {
     return (
-      <div className="nhl-player-page-container">
-        <div className="nhl-players-container">
-        {currentPlayerOne.id ? 
-        <div style={{backgroundColor:"#8feeffe9"}} className="nhl-player-stats">
-        <CompareStats id={currentPlayerOne.id} setCurrentPlayer={setCurrentPlayerOne} />
-        </div> 
-        : 
-        <div style={{backgroundColor:"#8feeffe9"}} className="nhl-player-search">
-          <Filter
-            allPlayers={allPlayers}
-            singleTeamRosterRetrieval={singleTeamRosterRetrieval}
-            setPlayers={setFilteredPlayersOne}
-            playerList={filteredPlayersOne}
-            team={currentTeamOne}
-            setTeam={setCurrentTeamOne}
-            teamList={teamList}
-            setPosition={setCurrentPostionOne}
-            position={currentPostionOne}
-            />
-        <Search
-          currentTeam={currentTeamOne}
-          setCurrentPlayer={setCurrentPlayerOne}
-          playerList={filteredPlayersOne}
-          position={currentPostionOne}
-          teamList={teamList}
-          />
-          </div>
-          }
-        {currentPlayerTwo.id ? 
-        <div style={{backgroundColor:"#c8dbdf6e9"}} className="nhl-player-stats">
-        <CompareStats id={currentPlayerTwo.id} setCurrentPlayer={setCurrentPlayerTwo} /> 
-        </div>
-        :
-        <div style={{backgroundColor:"#c8dbdfe9"}} className="nhl-player-search"> 
-          <Filter
-            allPlayers={allPlayers}
-            singleTeamRosterRetrieval={singleTeamRosterRetrieval}
-            setPlayers={setFilteredPlayersTwo}
-            playerList={filteredPlayersTwo}
-            team={currentTeamTwo}
-            setTeam={setCurrentTeamTwo}
-            setPosition={setCurrentPostionTwo}
-            position={currentPostionTwo}
-            teamList={teamList}
-            />
-        <Search
-          currentTeam={currentTeamTwo}
-          setCurrentPlayer={setCurrentPlayerTwo}
-          playerList={filteredPlayersTwo}
-          position={currentPostionTwo}
-          teamList={teamList}
-          />
-          </div>
-          }
-
+      <div className='nhl-player-page-container'>
+        <div className='nhl-title'>Player to Player</div>
+        <Link to='/'>
+          <button className='home-button'>Home</button>
+        </Link>
+        <div className='nhl-players-container'>
+          {currentPlayerOne.id ? (
+            <div
+              style={{ backgroundColor: '#8feeffe9' }}
+              className='nhl-player-stats'
+            >
+              <CompareStats
+                id={currentPlayerOne.id}
+                setCurrentPlayer={setCurrentPlayerOne}
+              />
+            </div>
+          ) : (
+            <div
+              style={{ backgroundColor: '#8feeffe9' }}
+              className='nhl-player-search'
+            >
+              <Filter
+                allPlayers={allPlayers}
+                singleTeamRosterRetrieval={singleTeamRosterRetrieval}
+                setPlayers={setFilteredPlayersOne}
+                playerList={filteredPlayersOne}
+                team={currentTeamOne}
+                setTeam={setCurrentTeamOne}
+                teamList={teamList}
+                setPosition={setCurrentPostionOne}
+                position={currentPostionOne}
+              />
+              <Search
+                currentTeam={currentTeamOne}
+                setCurrentPlayer={setCurrentPlayerOne}
+                playerList={filteredPlayersOne}
+                position={currentPostionOne}
+                teamList={teamList}
+              />
+            </div>
+          )}
+          {currentPlayerTwo.id ? (
+            <div
+              style={{ backgroundColor: '#c8dbdf6e9' }}
+              className='nhl-player-stats'
+            >
+              <CompareStats
+                id={currentPlayerTwo.id}
+                setCurrentPlayer={setCurrentPlayerTwo}
+              />
+            </div>
+          ) : (
+            <div
+              style={{ backgroundColor: '#c8dbdfe9' }}
+              className='nhl-player-search'
+            >
+              <Filter
+                allPlayers={allPlayers}
+                singleTeamRosterRetrieval={singleTeamRosterRetrieval}
+                setPlayers={setFilteredPlayersTwo}
+                playerList={filteredPlayersTwo}
+                team={currentTeamTwo}
+                setTeam={setCurrentTeamTwo}
+                setPosition={setCurrentPostionTwo}
+                position={currentPostionTwo}
+                teamList={teamList}
+              />
+              <Search
+                currentTeam={currentTeamTwo}
+                setCurrentPlayer={setCurrentPlayerTwo}
+                playerList={filteredPlayersTwo}
+                position={currentPostionTwo}
+                teamList={teamList}
+              />
+            </div>
+          )}
         </div>
       </div>
     );
   } else {
-    return <div>LOADING BRO</div>;
+    return <div>Loading</div>;
   }
 }
 

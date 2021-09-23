@@ -33,7 +33,9 @@
   background-color: rgba(207, 207, 207, 0.582);
 }
 
-.nhl-player-page-container .nhl-players-container h3, .nhl-player-page-container .nhl-players-container h2, .nhl-player-page-container .nhl-players-container h4 {
+.nhl-player-page-container .nhl-players-container h3,
+.nhl-player-page-container .nhl-players-container h2,
+.nhl-player-page-container .nhl-players-container h4 {
   margin: 0;
   font-size: 14px;
 }
@@ -119,7 +121,7 @@
 }
 
 .nhl-player-page-container .nhl-players-container .nhl-player-stats .each-player-stats h3 {
-  font-size: calc(1vw + .5rem);
+  font-size: calc(1vw + 0.5rem);
 }
 
 .nhl-player-page-container .nhl-players-container .btn-filters {
@@ -137,7 +139,7 @@
 .player-stat-table td {
   padding: 1px;
   margin: 0;
-  font-size: calc(1vw + .5rem);
+  font-size: calc(1vw + 0.5rem);
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -148,5 +150,24 @@
 
 .player-stat-table .player-cell-odd {
   background-color: #eff1f1be;
+}
+
+.home-button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-family: 'Viga', Times, serif;
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.home-button:hover {
+  background-color: rgba(254, 255, 255, 0.842);
 }
 /*# sourceMappingURL=style.css.map */

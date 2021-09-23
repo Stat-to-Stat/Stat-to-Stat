@@ -8,7 +8,7 @@ import {
 } from '../../../api/nhlApi';
 import CompareStats from './components/CompareStats';
 
-import "./style.css"
+import './style.css';
 
 function NHLPlayerToPlayer() {
   const [currentPlayerOne, setCurrentPlayerOne] = useState('');
@@ -21,7 +21,7 @@ function NHLPlayerToPlayer() {
 
   const [currentTeamOne, setCurrentTeamOne] = useState('');
   const [currentTeamTwo, setCurrentTeamTwo] = useState('');
-  
+
   const [currentPostionOne, setCurrentPostionOne] = useState('');
   const [currentPostionTwo, setCurrentPostionTwo] = useState('');
 
@@ -52,7 +52,7 @@ function NHLPlayerToPlayer() {
     };
     setArrays();
   }, []);
-    
+
   if (isLoaded) {
     return (
       <div className="nhl-player-page-container">
@@ -109,6 +109,7 @@ function NHLPlayerToPlayer() {
           />
           </div>
           }
+
         </div>
       </div>
     );

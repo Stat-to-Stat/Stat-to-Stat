@@ -17,8 +17,8 @@ function SingleSport({background, backgroundColor, link, img, finished }) {
 
   const mouseLeave = (e) => {
     e.target.style.background = '';
-    document.getElementsByClassName('landing-page-container')[0]
-    .style.background = backgroundStyle
+    // document.getElementsByClassName('landing-page-container')[0]
+    // .style.background = backgroundStyle
   };
 
   const handleClick = () => {

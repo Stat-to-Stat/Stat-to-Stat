@@ -12,11 +12,20 @@ export default function Sports() {
         />
       <SingleSport
         // link='/NBA'
+        background="/nbaBack"
         finished={false}
         img='NBA'
-      />
-      <SingleSport img='NFL' />
-      <SingleSport img='MLB' />
+        />
+      <SingleSport
+        background="/nflBack"
+        finished={false}
+        img='NFL'
+        />
+      <SingleSport
+        background="/mlbBack"
+        finished={false}
+        img='MLB' 
+        />
     </div>
   );
 }

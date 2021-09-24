@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { singlePlayerStatRetrieval } from '../../../../api/nhlApi';
 import SeasonFilter from './SeasonFilter';
 
-export default function Goalies({ id, setCurrentPlayer }) {
+export default function Goalies({setTeam, setPosition, id, setCurrentPlayer }) {
   const [stats, setStats] = useState({});
   const [playerInfo, setPlayerInfo] = useState({});
   const [playerStats, setPlayerStats] = useState({});
@@ -88,6 +88,8 @@ export default function Goalies({ id, setCurrentPlayer }) {
             className='player-text'
             onClick={() => {
               setCurrentPlayer('');
+              setTeam('');
+              setPosition('');
             }}
           >
             New Player
@@ -103,6 +105,8 @@ export default function Goalies({ id, setCurrentPlayer }) {
             className='player-text'
             onClick={() => {
               setCurrentPlayer('');
+              setTeam('');
+              setPosition('');
             }}
           >
             Search

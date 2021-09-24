@@ -31,9 +31,9 @@ export default function AboutUs() {
               camp, Jeremy originally graduated from St. John's University with
               a bachelors in Sports Management. Outside of coding, Jeremy is
               passionate about sports, especially football (one of the original
-              inspirations of the Stat to Stat concept!) and Esports. He is also
+              inspirations for the Stat to Stat concept!) and Esports. He is
               very passionate about fantasy sports as well (another inspiration
-              of the Stat to Stat concept).
+              for the Stat to Stat concept).
             </Typography>
           </CardContent>
           <CardActions>
@@ -65,9 +65,10 @@ export default function AboutUs() {
               Co-Developer & Founder
             </Typography>
             <Typography variant='body1' component='p'>
-              When Shawn is not coding you can find him in the kitchen cooking some of his favorites dishes.
-              Shawn's favorite food is steak. His favorite down time hobby is working out and lifting weights
-              in the gym. 
+              When Shawn is not coding you can find him in the kitchen cooking
+              some of his favorites dishes. Shawn's favorite food is steak. His
+              favorite down time hobby is working out and lifting weights in the
+              gym.
             </Typography>
           </CardContent>
           <CardActions>

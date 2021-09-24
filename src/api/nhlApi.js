@@ -79,7 +79,7 @@ export const singleNhlPlayerRetrieval = (id) => {
 };
 
 // Single Player Stats
-// UPDATE TO 2021-2022 ONCE REGULAR SEASON STARTS!!!!!!!
+// UPDATE TO 2021-2022 ONCE REGULAR SEASON STARTS!!!!!!!!
 export const singlePlayerStatRetrieval = async (id, season = 20202021) => {
   let playerStats = null;
   let playerInfo = null;

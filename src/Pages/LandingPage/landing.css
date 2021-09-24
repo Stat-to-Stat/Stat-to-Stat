@@ -13,6 +13,7 @@
 }
 
 .landing-page-container .Landing-Page-Title {
+  text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 #000;
   width: 100%;
   text-align: center;
   margin: 1rem 0 1rem 0;
@@ -84,6 +85,7 @@
 }
 
 .aboutButton {
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 #000;
   background: none;
   border: none;
   border-radius: 5px;

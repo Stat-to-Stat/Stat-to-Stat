@@ -8,24 +8,11 @@ export default function Sports() {
         link='/NHL'
         img='NHL'
         finished={true}
-        background="/nhlBack"
-        />
-      <SingleSport
-        // link='/NBA'
-        background="/nbaBack"
-        finished={false}
-        img='NBA'
-        />
-      <SingleSport
-        background="/nflBack"
-        finished={false}
-        img='NFL'
-        />
-      <SingleSport
-        background="/mlbBack"
-        finished={false}
-        img='MLB' 
-        />
+        background='/nhlBack'
+      />
+      <SingleSport background='/nbaBack' finished={false} img='NBA' />
+      <SingleSport background='/nflBack' finished={false} img='NFL' />
+      <SingleSport background='/mlbBack' finished={false} img='MLB' />
     </div>
   );
 }

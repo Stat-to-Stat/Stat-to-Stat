@@ -9,6 +9,8 @@ import NHLTeamToTeam from './Pages/TeamToTeam';
 
 import AboutUs from './about/AboutUs';
 
+import NotFound from './NotFound';
+
 export default function Routes() {
   return (
     <Router>
@@ -28,6 +30,7 @@ export default function Routes() {
         <Route exact path='/aboutus'>
           <AboutUs />
         </Route>
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

@@ -70,6 +70,8 @@ function NHLPlayerToPlayer() {
               <CompareStats
                 id={currentPlayerOne.id}
                 setCurrentPlayer={setCurrentPlayerOne}
+                setTeam={setCurrentTeamOne}
+                setPosition={setCurrentPostionOne}
               />
             </div>
           ) : (
@@ -105,6 +107,8 @@ function NHLPlayerToPlayer() {
               <CompareStats
                 id={currentPlayerTwo.id}
                 setCurrentPlayer={setCurrentPlayerTwo}
+                setTeam={setCurrentTeamTwo}
+                setPosition={setCurrentPostionTwo}
               />
             </div>
           ) : (

@@ -14,7 +14,7 @@ function Search({ currentTeam, teamList, setCurrentTeam }) {
     } else setCurrentTeam('');
   };
   return (
-    <div className="team-each-search">
+    <div className='team-each-search'>
       <Autocomplete
         id='highlights-demo'
         style={{ width: 175 }}

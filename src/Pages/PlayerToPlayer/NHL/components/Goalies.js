@@ -55,8 +55,8 @@ export default function Goalies({
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
             <img
-              src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
-              alt={`Human`}
+              src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+              alt={`${id}.jpg`}
             />
           </div>
           <h3>{playerInfo.fullName}</h3>

@@ -55,7 +55,7 @@ export default function PositionPlayers({
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
             <img
-              src={`nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+              src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
               alt={`Human`}
             />
           </div>

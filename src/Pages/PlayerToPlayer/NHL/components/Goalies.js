@@ -56,7 +56,7 @@ export default function Goalies({
           <div className='player-picture'>
             <img
               src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
-              alt={`${id}.jpg`}
+              alt={`HTTPS issue still persisting`}
             />
           </div>
           <h3>{playerInfo.fullName}</h3>

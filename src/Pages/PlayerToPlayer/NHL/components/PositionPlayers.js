@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { singlePlayerStatRetrieval } from '../../../../api/nhlApi';
 import SeasonFilter from './SeasonFilter';
 
-export default function PositionPlayers({setTeam, setPosition, id, setCurrentPlayer }) {
+export default function PositionPlayers({
+  setTeam,
+  setPosition,
+  id,
+  setCurrentPlayer,
+}) {
   const [stats, setStats] = useState({});
   const [playerInfo, setPlayerInfo] = useState({});
   const [playerStats, setPlayerStats] = useState({});
@@ -50,7 +55,7 @@ export default function PositionPlayers({setTeam, setPosition, id, setCurrentPla
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
             <img
-              src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+              src={`nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
               alt={`Human`}
             />
           </div>

@@ -21,6 +21,22 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
+  window.addEventListener('activate', function (event) {
+    event.waitUntil(
+      caches.keys().then(function (cachesNames) {
+        return Promise.all(
+          cachesNames
+            .filter(function (cacheName) {
+              return true;
+            })
+            .map(function (cacheName) {
+              return caches.delete(cacheName);
+            })
+        );
+      })
+    );
+  });
+
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);

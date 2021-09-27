@@ -8,7 +8,8 @@
     #2c2c30 61.98%,
     #1a1a1d 100%
   );
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-flow: column;
   .Landing-Page-Title {
@@ -21,8 +22,10 @@
     font-family: 'Viga', Times, serif;
   }
   .landing-page-sports-container {
-    overflow-y: auto;
-    overflow-x: hidden;
+    @media (max-width: 768px) {
+      margin-top: 5rem;
+    };
+    overflow: hidden;
     align-content: center;
     justify-content: center;
     width: 100%;

@@ -28,7 +28,9 @@ function Filter({
   singleTeamRosterRetrieval,
   playerList,
   setPosition,
-  position
+  position,
+  setRoster,
+  roster
 }) {
 
   const [showFilters, setShowFilters] = useState(false);
@@ -41,9 +43,12 @@ function Filter({
       const teamsRoster = await singleTeamRosterRetrieval(
         event.target.value.id
       );
+      setRoster(teamsRoster);
       setPlayers(teamsRoster);
+      setPosition('');
     } else {
       setTeam('');
+      setPosition('');
       setPlayers(allPlayers);
     }
   };
@@ -51,7 +56,7 @@ function Filter({
   const handlePosition = (e) => {
     if(e.target.value){
       const positionedPlayer = []
-      for(const player of playerList){
+      for(const player of roster){
         if(player.position === e.target.value){
           positionedPlayer.push(player)
         }

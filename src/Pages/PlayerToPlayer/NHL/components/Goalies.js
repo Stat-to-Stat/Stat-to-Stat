@@ -25,6 +25,7 @@ export default function Goalies({
         const playerInfoHelper = playerStats.playerInfo.data.people[0];
         setPlayerInfo(playerInfoHelper);
         setPlayerStats(playerStatsHelper);
+        setLoading(true);
       } catch (err) {
         setLoading(true);
         setPlayerInfo({});
@@ -33,7 +34,7 @@ export default function Goalies({
     };
     setArrays();
   }, [season]);
-
+  console.log('on loading', loading);
   if (loading) {
     try {
       const tableStats = {

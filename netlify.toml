@@ -1,6 +1,9 @@
-[[headers]]
-
-for = "/src/serviceWorker.js"
-
-  [headers.values]
-  cache-control="max-age=0,no-cache,no-store,must-revalidate"
+build:
+  command: CI= npm run build
+  commanOrigin: ui
+  publish: /opt/build/repo/build
+  publishOrigin: ui
+headers:
+  - for: /src/serviceWorker.js
+  values: cache-control: max-age=0, no-cache, no-store, must-revalidate
+headersOrigin: config

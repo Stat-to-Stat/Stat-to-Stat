@@ -66,7 +66,7 @@ export default function Goalies({
           <h3>{playerInfo.currentTeam.name}</h3>
           <h3>{playerInfo.currentAge} years old</h3>
           <h3>
-            From: {playerInfo.birthCity},
+            From: {playerInfo.birthCity},{' '}
             {playerInfo.birthStateProvince || playerInfo.birthCountry}
           </h3>
           <h3>Hand: {playerInfo.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>

@@ -34,7 +34,6 @@ export default function Goalies({
     };
     setArrays();
   }, [season]);
-  console.log('on loading', loading);
   if (loading) {
     try {
       const tableStats = {

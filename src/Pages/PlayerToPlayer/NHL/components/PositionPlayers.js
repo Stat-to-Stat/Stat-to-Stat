@@ -55,7 +55,7 @@ export default function PositionPlayers({
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
             <img
-              src={`http://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+              src={`https://cms.nhl.bamgrid.com/images/headshots/current/168x168/${id}@2x.jpg`}
               alt={`HTTPS issue still persisting`}
             />
           </div>

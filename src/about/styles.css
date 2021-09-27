@@ -72,6 +72,7 @@
 
 .aboutUsContainer {
   width: 100%;
+  min-height: 100%;
   background: radial-gradient(163.19% 93.36% at 50% 46.95%, #28282c 0%, #1a1a1d 34.38%, #2c2c30 61.98%, #1a1a1d 100%);
 }
 

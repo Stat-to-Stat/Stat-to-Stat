@@ -47,6 +47,7 @@ function Filter({
       setPlayers(teamsRoster);
       setPosition('');
     } else {
+      setRoster(allPlayers);
       setTeam('');
       setPosition('');
       setPlayers(allPlayers);

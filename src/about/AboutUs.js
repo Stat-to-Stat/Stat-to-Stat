@@ -91,7 +91,6 @@ export default function AboutUs() {
           </CardActions>
         </Card>
       </div>
-      <div>testing</div>
     </div>
   );
 }

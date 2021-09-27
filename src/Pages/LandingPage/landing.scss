@@ -8,7 +8,8 @@
     #2c2c30 61.98%,
     #1a1a1d 100%
   );
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-flow: column;
   .Landing-Page-Title {
@@ -21,8 +22,10 @@
     font-family: 'Viga', Times, serif;
   }
   .landing-page-sports-container {
-    overflow-y: auto;
-    overflow-x: hidden;
+    @media (max-width: 768px) {
+      margin-top: 5rem;
+    };
+    overflow: hidden;
     align-content: center;
     justify-content: center;
     width: 100%;
@@ -57,10 +60,20 @@
 .Landing-Page-Title--about {
   display: flex;
   align-items: right;
-  justify-content: right;
-  padding: 10px;
+  width: 100%;
+  // margin: 10px;
   color: hsl(47, 100%, 50%);
 }
+.Landing-Page-Title{
+  pointer-events:none;
+}
+
+  @media (max-width: 768px) {
+    .Landing-Page-Title{
+      top: 2rem;
+      position: relative;
+    }
+  };
 
 .aboutButton {
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 #000;

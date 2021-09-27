@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Title() {
   return (
-    <div>
+    <div className="landing-page-title-container">
       <div className='Landing-Page-Title--about'>
         <Link to='/aboutus'>
           <button type='submit' className='aboutButton'>

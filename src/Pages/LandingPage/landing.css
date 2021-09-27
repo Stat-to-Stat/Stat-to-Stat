@@ -54,8 +54,8 @@
 }
 
 .landing-page-container .landing-page-sports-container .landing-page-sport-logo:hover {
-  -webkit-transform: scale(2);
-          transform: scale(2);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
   z-index: 100;
 }
 

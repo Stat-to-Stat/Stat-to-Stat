@@ -64,7 +64,7 @@ export default function PositionPlayers({
           <h3>{playerInfo.weight}lbs</h3>
           <h3>Position: {playerInfo.primaryPosition.name}</h3>
           <h3>{playerInfo.currentTeam.name}</h3>
-          <h3>{playerInfo.currentAge} years old</h3>
+          <h3>{playerInfo.currentAge} Years Old</h3>
           <h3>
             From: {playerInfo.birthCity},{' '}
             {playerInfo.birthStateProvince || playerInfo.birthCountry}

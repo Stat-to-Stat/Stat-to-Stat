@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { singleNhlTeamRetrieval } from '../../../api/nhlApi';
 import SeasonFilter from './SeasonFilter';
 
-export default function TeamStats({ id }) {
+export default function TeamStats({setCurrentTeam, id }) {
   const [stats, setStats] = useState({});
   const [seasonStats, setSeasonStats] = useState({});
   const [seasonRank, setSeasonRank] = useState({});
@@ -23,7 +23,6 @@ export default function TeamStats({ id }) {
     setArrays();
   }, [season]);
 
-  console.log(stats, 'this is stats');
   if (!loading) {
     return <div>Loading</div>;
   }
@@ -33,27 +32,19 @@ export default function TeamStats({ id }) {
     Losses: `${seasonStats.losses} (${seasonRank.losses})`,
     'Overtime (losses)': `${seasonStats.ot} (${seasonRank.ot})`,
     'Total Points': `${seasonStats.pts} (${seasonRank.pts})`,
-    'Faceoff Win %': `${seasonStats.faceOffWinPercentage} (
-      ${seasonRank.faceOffWinPercentage})`,
-    'Goals Per Game': `${seasonStats.goalsPerGame.toFixed(1)} (
-      ${seasonRank.goalsPerGame})`,
-    'Goals Against Per Game': `${seasonStats.goalsAgainstPerGame.toFixed(1)} (
-      ${seasonRank.goalsAgainstPerGame})`,
-    'Shots Per Game': `${seasonStats.shotsPerGame.toFixed(1)} (
-      ${seasonRank.shotsPerGame})`,
-    'Shots Allowed Per Game': `${seasonStats.shotsAllowed.toFixed(1)} (
-      ${seasonRank.shotsAllowed})`,
-    'Power Plays Per Game': `${seasonStats.powerPlayOpportunities} (
-  ${seasonRank.powerPlayOpportunities})`,
-    'Power Play %': `${seasonStats.powerPlayPercentage} (
-      ${seasonRank.powerPlayPercentage})`,
-    'Penalty Kill %': `${seasonStats.penaltyKillPercentage} (
-      ${seasonRank.penaltyKillPercentage})`,
+    'Faceoff Win %': `${seasonStats.faceOffWinPercentage} (${seasonRank.faceOffWinPercentage})`,
+    'Goals Per Game': `${seasonStats.goalsPerGame.toFixed(1)} (${seasonRank.goalsPerGame})`,
+    'Goals Against Per Game': `${seasonStats.goalsAgainstPerGame.toFixed(1)} (${seasonRank.goalsAgainstPerGame})`,
+    'Shots Per Game': `${seasonStats.shotsPerGame.toFixed(1)} (${seasonRank.shotsPerGame})`,
+    'Shots Allowed Per Game': `${seasonStats.shotsAllowed.toFixed(1)} (${seasonRank.shotsAllowed})`,
+    'Power Plays Per Game': `${seasonStats.powerPlayOpportunities} (${seasonRank.powerPlayOpportunities})`,
+    'Power Play %': `${seasonStats.powerPlayPercentage} (${seasonRank.powerPlayPercentage})`,
+    'Penalty Kill %': `${seasonStats.penaltyKillPercentage} (${seasonRank.penaltyKillPercentage})`,
   };
 
   return (
     <div className='each-team-stats'>
-      <SeasonFilter setSeason={setSeason} season={season} />
+      <SeasonFilter setSeason={setSeason} season={season} startDate={stats.firstYearOfPlay} />
       <img
         src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${id}.svg`}
         alt={`Hello`}
@@ -84,6 +75,14 @@ export default function TeamStats({ id }) {
           })}
         </tbody>
       </table>
+      <button
+            className='player-text'
+            onClick={() => {
+              setCurrentTeam('');
+            }}
+          >
+            Search
+          </button>
     </div>
   );
 }

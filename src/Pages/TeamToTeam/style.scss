@@ -58,7 +58,18 @@
           font-size: calc(1vw + 0.5rem);
         }
       }
+
+      button {
+        border: none;
+        background-color: hsla(0, 0%, 67%, 0.548);
+        border-radius: 5px;
+        &:hover {
+          background-color: hsla(0, 0%, 81%, 0.582);
+        }
+      }
+
     }
+    
   }
 }
 
@@ -88,3 +99,5 @@
   font-family: 'Viga', Times, serif;
   position: absolute;
 }
+
+

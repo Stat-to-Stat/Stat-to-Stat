@@ -3,24 +3,23 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-function generateArrayOfYears() {
+function generateArrayOfYears(startDate) {
   const max = new Date().getFullYear();
-  // Update for upcoming NHL season!!!!!
-  const min = max - 103;
+  const min = startDate;
   const years = [];
 
-  for (var i = max; i >= min; i--) {
+  for (var i = max; i > min; i--) {
     years.push(`${i - 1}-${i}`);
   }
   return years;
 }
 
-const years = generateArrayOfYears();
 
-export default function SeasonFilter({ season, setSeason }) {
+export default function SeasonFilter({startDate, season, setSeason }) {
   const handleChange = (event) => {
     setSeason(event.target.value);
   };
+  const years = generateArrayOfYears(startDate);
 
   return (
     <div>

@@ -5,11 +5,11 @@ import { LandingPage, NHLHomePage } from './Pages';
 
 import { NHLPlayerToPlayer } from './Pages/PlayerToPlayer';
 
-import NHLTeamToTeam from './Pages/TeamToTeam';
+import NHLTeamToTeam from './Pages/TeamToTeam/NHL';
 
-import AboutUs from './about/AboutUs';
+import AboutUs from './Pages/about/AboutUs';
 
-import NotFound from './NotFound';
+import NotFound from './Pages/NotFound';
 
 export default function Routes() {
   return (

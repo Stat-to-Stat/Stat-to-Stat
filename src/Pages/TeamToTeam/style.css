@@ -97,6 +97,16 @@
   font-size: calc(1vw + 0.5rem);
 }
 
+.team-to-team-page-container .nhl-teams-container .nhl-team-stats button {
+  border: none;
+  background-color: rgba(171, 171, 171, 0.548);
+  border-radius: 5px;
+}
+
+.team-to-team-page-container .nhl-teams-container .nhl-team-stats button:hover {
+  background-color: rgba(207, 207, 207, 0.582);
+}
+
 .home-button {
   background: none;
   border: none;

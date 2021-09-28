@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 export default function NHLTeamToTeam() {
-  const [currentTeam, setCurrentTeam] = useState('');
   const [currentTeamOne, setCurrentTeamOne] = useState('');
 
   const [currentTeamTwo, setCurrentTeamTwo] = useState('');
@@ -37,7 +36,7 @@ export default function NHLTeamToTeam() {
   if (isLoaded) {
     return (
       <div className='team-to-team-page-container '>
-        <div className='nhl-title'>Team to Team</div>
+        {currentTeamOne.name || currentTeamTwo.name ? null : <div className='nhl-title'>Team to Team</div>}
         <Link to='/'>
           <button className='home-button'>Home</button>
         </Link>
@@ -47,7 +46,7 @@ export default function NHLTeamToTeam() {
               style={{ backgroundColor: '#8feeffe9' }}
               className='nhl-team-stats'
             >
-              <TeamStats id={currentTeamOne.id} />
+              <TeamStats setCurrentTeam={setCurrentTeamOne} id={currentTeamOne.id} />
             </div>
           ) : (
             <div
@@ -55,7 +54,7 @@ export default function NHLTeamToTeam() {
               className='nhl-team-search'
             >
               <Search
-                currentTeam={currentTeam}
+                currentTeam={currentTeamOne}
                 setCurrentTeam={setCurrentTeamOne}
                 teamList={teamList}
               />
@@ -66,7 +65,7 @@ export default function NHLTeamToTeam() {
               style={{ backgroundColor: '#c8dbdfe9' }}
               className='nhl-team-stats'
             >
-              <TeamStats id={currentTeamTwo.id} />
+              <TeamStats setCurrentTeam={setCurrentTeamTwo} id={currentTeamTwo.id} />
             </div>
           ) : (
             <div
@@ -74,7 +73,7 @@ export default function NHLTeamToTeam() {
               className='nhl-team-search'
             >
               <Search
-                currentTeam={currentTeam}
+                currentTeam={currentTeamTwo}
                 setCurrentTeam={setCurrentTeamTwo}
                 teamList={teamList}
               />

@@ -1,12 +1,12 @@
 import React from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 function generateArrayOfYears() {
   const max = new Date().getFullYear();
-  const min = max - 23;
+  // Update for upcoming NHL season!!!!!
+  const min = max - 103;
   const years = [];
 
   for (var i = max; i >= min; i--) {

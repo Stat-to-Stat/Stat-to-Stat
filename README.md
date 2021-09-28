@@ -10,7 +10,7 @@ Co-Developer and Founder Jeremy Cook has been an avid sports fan his entire life
 
 ### What is the tech stack for Stat to Stat?
 
-Stat to Stat is built using Reactjs, Sass, Material UI, and is a PWA that features both mobile and web specific layouts to allow for ease of access across platforms.
+Stat to Stat is built using Reactjs, Sass, and Material UI. It also features both mobile and web specific layouts to allow for ease of access across platforms.
 
 ### What sports does Stat to Stat currently cover?
 

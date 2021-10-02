@@ -24,6 +24,8 @@ NHL - Getting current Coaches
 NHL - Adding Team Filters such as by division, conference, etc
 NHL - Incorporate stats from playoffs and Stanley Cup Wins
 
+NBA - Get more information for teams such as total rankings and more history 
+
 ### How to contact us?
 
 Our contact information is available in the about us section of the live site.

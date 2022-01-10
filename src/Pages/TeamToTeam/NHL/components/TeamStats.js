@@ -7,7 +7,7 @@ export default function TeamStats({ setCurrentTeam, id }) {
   const [seasonStats, setSeasonStats] = useState({});
   const [seasonRank, setSeasonRank] = useState({});
   const [loading, setLoading] = useState(false);
-  const [season, setSeason] = useState('2020-2021');
+  const [season, setSeason] = useState('2021-2022');
 
   useEffect(() => {
     const currentSeason = season.replace(/-|\s/g, '');

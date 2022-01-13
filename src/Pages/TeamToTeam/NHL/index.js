@@ -4,6 +4,9 @@ import { nhlTeamRetrieval } from '../../../api/nhlApi';
 import TeamStats from './components/TeamStats';
 import { Link } from 'react-router-dom';
 import './style.css';
+import '../Shared/teamtoteam.css';
+import '../../Common/NHL.css';
+
 
 export default function NHLTeamToTeam() {
   const [currentTeamOne, setCurrentTeamOne] = useState('');
@@ -35,18 +38,18 @@ export default function NHLTeamToTeam() {
   }, []);
   if (isLoaded) {
     return (
-      <div className='team-to-team-page-container '>
+      <div className='nhl-background-image team-to-team-page-container '>
         {currentTeamOne.name || currentTeamTwo.name ? null : (
-          <div className='nhl-title'>Team to Team</div>
+          <div className='team-to-team-title'>Team to Team</div>
         )}
         <Link to='/'>
           <button className='home-button'>Home</button>
         </Link>
-        <div className='nhl-teams-container'>
+        <div className='team-to-team-teams-container'>
           {currentTeamOne.id ? (
             <div
               style={{ backgroundColor: '#8feeffe9' }}
-              className='nhl-team-stats'
+              className='team-to-team-team-stats'
             >
               <TeamStats
                 setCurrentTeam={setCurrentTeamOne}
@@ -56,7 +59,7 @@ export default function NHLTeamToTeam() {
           ) : (
             <div
               style={{ backgroundColor: '#8feeffe9' }}
-              className='nhl-team-search'
+              className='team-to-team-team-search'
             >
               <Search
                 currentTeam={currentTeamOne}
@@ -68,7 +71,7 @@ export default function NHLTeamToTeam() {
           {currentTeamTwo.id ? (
             <div
               style={{ backgroundColor: '#c8dbdfe9' }}
-              className='nhl-team-stats'
+              className='team-to-team-team-stats'
             >
               <TeamStats
                 setCurrentTeam={setCurrentTeamTwo}
@@ -78,7 +81,7 @@ export default function NHLTeamToTeam() {
           ) : (
             <div
               style={{ backgroundColor: '#c8dbdfe9' }}
-              className='nhl-team-search'
+              className='team-to-team-team-search'
             >
               <Search
                 currentTeam={currentTeamTwo}

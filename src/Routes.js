@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { LandingPage, NHLHomePage } from './Pages';
+import { LandingPage, NHLHomePage, NBAHomePage } from './Pages';
 
 import { NHLPlayerToPlayer } from './Pages/PlayerToPlayer';
 
 import NHLTeamToTeam from './Pages/TeamToTeam/NHL';
+import NBATeamToTeam from './Pages/TeamToTeam/NBA';
 
 import AboutUs from './Pages/about/AboutUs';
 
@@ -17,6 +18,12 @@ export default function Routes() {
       <Switch>
         <Route exact path='/'>
           <LandingPage />
+        </Route>
+        <Route exact path='/NBA'>
+          <NBAHomePage />
+        </Route>
+        <Route exact path='/NBA/teams'>
+          <NBATeamToTeam />
         </Route>
         <Route exact path='/NHL'>
           <NHLHomePage />

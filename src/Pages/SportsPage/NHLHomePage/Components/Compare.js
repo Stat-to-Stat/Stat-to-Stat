@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 export default function Compare() {
 
     return (
-        <div className="nhl-compare-container">
-            <div className="nhl-compare-link-container">
+        <div className="sportspage-compare-container">
+            <div className="sportspage-compare-link-container">
             <Link to="/NHL/teams">
                 <div className="compare-link">
                     <div>

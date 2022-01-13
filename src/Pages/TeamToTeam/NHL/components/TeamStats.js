@@ -65,7 +65,7 @@ export default function TeamStats({ setCurrentTeam, id }) {
         }}
       />
       <h3>{stats.name}</h3>
-      <h3>Divsion: {stats.division.name}</h3>
+      <h3>Division: {stats.division.name}</h3>
       <h3>Conference: {stats.conference.name}</h3>
       <h3>First Played: {stats.firstYearOfPlay}</h3>
       <h3>Arena: {stats.venue.name}</h3>

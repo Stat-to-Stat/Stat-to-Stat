@@ -1,3 +1,4 @@
 import LandingPage from "./LandingPage";
 import {NHLHomePage} from "./SportsPage"
-export {LandingPage, NHLHomePage}
+import {NBAHomePage} from "./SportsPage"
+export {LandingPage, NHLHomePage, NBAHomePage}

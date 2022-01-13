@@ -1,0 +1,68 @@
+.nhl-main-container {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77702047325.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  .nhl-title {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+    font-size: 3rem;
+    color: black;
+    font-family: 'Viga', Times, serif;
+  }
+  .nhl-compare-container {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .nhl-compare-link-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      a {
+        text-decoration: none;
+      }
+      .compare-link {
+        padding: 1rem;
+        border-radius: 25px;
+        background-color: black;
+        display: grid;
+        place-items: center;
+        div {
+          font-size: 2rem;
+          color: silver;
+          font-family: 'Viga', Times, serif;
+          width: 100%;
+          text-align: center;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.home-button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-family: 'Viga', Times, serif;
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: rgba(254, 255, 255, 0.842);
+  }
+}

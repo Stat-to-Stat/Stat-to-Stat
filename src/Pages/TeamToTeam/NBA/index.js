@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Search from './components/Search';
-import { nhlTeamRetrieval } from '../../../api/nhlApi';
+import { nbaTeamsRetrieval, singleNbaTeamRetrieval } from '../../../api/nbaApi';
 import TeamStats from './components/TeamStats';
 import { Link } from 'react-router-dom';
 import './style.css';
 import '../Shared/teamtoteam.css';
-import '../../Common/NHL.css';
+import '../../Common/NBA.css';
 
 
-export default function NHLTeamToTeam() {
+
+export default function NBATeamToTeam() {
   const [currentTeamOne, setCurrentTeamOne] = useState('');
 
   const [currentTeamTwo, setCurrentTeamTwo] = useState('');
@@ -19,7 +20,7 @@ export default function NHLTeamToTeam() {
 
   useEffect(() => {
     const setArrays = async () => {
-      const allTeams = await nhlTeamRetrieval();
+      const allTeams = await nbaTeamsRetrieval();
       setTimeout(() => {
         allTeams.sort(function (a, b) {
           if (a.name < b.name) {
@@ -38,7 +39,7 @@ export default function NHLTeamToTeam() {
   }, []);
   if (isLoaded) {
     return (
-      <div className='nhl-background-image team-to-team-page-container '>
+      <div className='nba-background-image team-to-team-page-container '>
         {currentTeamOne.name || currentTeamTwo.name ? null : (
           <div className='team-to-team-title'>Team to Team</div>
         )}
@@ -46,14 +47,14 @@ export default function NHLTeamToTeam() {
           <button className='home-button'>Home</button>
         </Link>
         <div className='team-to-team-teams-container'>
-          {currentTeamOne.id ? (
+          {currentTeamOne.teamId ? (
             <div
               style={{ backgroundColor: '#8feeffe9' }}
               className='team-to-team-team-stats'
             >
               <TeamStats
                 setCurrentTeam={setCurrentTeamOne}
-                id={currentTeamOne.id}
+                id={currentTeamOne.teamId}
               />
             </div>
           ) : (
@@ -68,14 +69,14 @@ export default function NHLTeamToTeam() {
               />
             </div>
           )}
-          {currentTeamTwo.id ? (
+          {currentTeamTwo.teamId ? (
             <div
               style={{ backgroundColor: '#c8dbdfe9' }}
               className='team-to-team-team-stats'
             >
               <TeamStats
                 setCurrentTeam={setCurrentTeamTwo}
-                id={currentTeamTwo.id}
+                id={currentTeamTwo.teamId}
               />
             </div>
           ) : (

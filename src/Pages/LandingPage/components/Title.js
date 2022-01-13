@@ -9,8 +9,8 @@ import {
 export default function Title() {
   useEffect(() => {
     const setStats = async () => {
-      const playerStats = await nbaPlayerStatsRetrieval(246);
-      const playerInfo = await nbaPlayerIdRetrieval('Jokic');
+      // const playerStats = await nbaPlayerStatsRetrieval(246);
+      // const playerInfo = await nbaPlayerIdRetrieval('Jokic');
       const teamList = await nbaTeamsRetrieval();
       // console.log(playerStats);
       // console.log(playerInfo);

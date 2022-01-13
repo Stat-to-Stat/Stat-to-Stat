@@ -21,13 +21,24 @@ export const nbaPlayerStatsRetrieval = async (id, currentSeason = 2020) =>
 
 export const nbaTeamsRetrieval = () => {
   let teamArr = [];
-  axios.get('https://www.balldontlie.io/api/v1/teams').then((res) => {
-    const teams = res.data.data;
-    // console.log(res);
+  axios.get('https://data.nba.net/prod/v1/2021/team_stats_rankings.json').then((res) => {
+    const teams = res.data.league.standard.regularSeason.teams;
     for (const team of teams) {
-      let singleTeam = team;
-      teamArr.push(singleTeam);
+      teamArr.push(team);
     }
   });
   return teamArr;
 };
+
+export const singleNbaTeamRetrieval = async (id, currentSeason = 2020) => 
+  await axios
+  .get(`https://data.nba.net/prod/v1/${currentSeason}/team_stats_rankings.json`)
+  .then((res) => {
+    const teams = res.data.league.standard.regularSeason.teams;
+    for (const team of teams) {
+      if (team.teamId == id) {
+        return team;
+      }
+    }
+  });
+

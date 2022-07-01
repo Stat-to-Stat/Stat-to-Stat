@@ -1,3 +1,3 @@
-import NHLHomePage from "./NHLHomePage";
+import NHLHomePage from './NHLHomePage';
 
-export {NHLHomePage}
+export { NHLHomePage };

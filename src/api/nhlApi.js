@@ -80,7 +80,7 @@ export const singleNhlPlayerRetrieval = (id) => {
 
 // Single Player Stats
 // UPDATE TO 2021-2022 ONCE REGULAR SEASON STARTS!!!!!!!!
-export const singlePlayerStatRetrieval = async (id, season = 20212022) => {
+export const singlePlayerStatRetrieval = async (id, season = 20222023) => {
   let playerStats = null;
   let playerInfo = null;
   await axios

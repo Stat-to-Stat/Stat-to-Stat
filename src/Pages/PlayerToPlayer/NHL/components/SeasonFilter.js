@@ -5,7 +5,7 @@ import Select from '@material-ui/core/Select';
 
 function generateArrayOfYears() {
   const max = new Date().getFullYear();
-  const min = max - 22;
+  const min = max - 24;
   const years = [];
 
   for (var i = max; i >= min; i--) {

@@ -97,3 +97,12 @@ export const singlePlayerStatRetrieval = async (id, season = 20222023) => {
     });
   return { playerStats, playerInfo };
 };
+
+export const singleSeasonRetrieval = async () => {
+  let currentSeason = await axios
+    .get('https://statsapi.web.nhl.com/api/v1/schedule')
+    .then((res) => {
+      return res.data.dates[0].games[0].season;
+    });
+  return currentSeason.slice(4);
+};

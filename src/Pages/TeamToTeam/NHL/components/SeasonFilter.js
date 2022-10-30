@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { singleSeasonRetrieval } from '../../../../api/nhlApi';
 
-function generateArrayOfYears(startDate) {
-  const max = new Date().getFullYear();
-  const min = startDate;
+function generateArrayOfYears(currentSeason) {
+  const max = currentSeason;
+  const min = max - 24;
   const years = [];
 
-  for (var i = max; i > min; i--) {
+  for (var i = max; i >= min; i--) {
     years.push(`${i - 1}-${i}`);
   }
   return years;
 }
 
+export default function SeasonFilter({ startDate, season, setSeason }) {
+  const [years, setYears] = useState([]);
 
-export default function SeasonFilter({startDate, season, setSeason }) {
+  useEffect(() => {
+    let getCurrentSeason = async () => {
+      let currentSeason = await singleSeasonRetrieval();
+      setYears(generateArrayOfYears(currentSeason));
+    };
+    getCurrentSeason();
+  }, []);
   const handleChange = (event) => {
     setSeason(event.target.value);
   };
-  const years = generateArrayOfYears(startDate);
 
   return (
     <div>

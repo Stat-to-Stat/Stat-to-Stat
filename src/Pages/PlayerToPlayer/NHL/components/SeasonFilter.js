@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { singleSeasonRetrieval } from '../../../../api/nhlApi';
 
-function generateArrayOfYears() {
-  const max = new Date().getFullYear();
+function generateArrayOfYears(currentSeason) {
+  const max = currentSeason;
   const min = max - 24;
   const years = [];
 
@@ -14,13 +15,19 @@ function generateArrayOfYears() {
   return years;
 }
 
-const years = generateArrayOfYears();
-
 export default function SeasonFilter({ season, setSeason }) {
+  const [years, setYears] = useState([]);
+
+  useEffect(() => {
+    let getCurrentSeason = async () => {
+      let currentSeason = await singleSeasonRetrieval();
+      setYears(generateArrayOfYears(currentSeason));
+    };
+    getCurrentSeason();
+  }, []);
   const handleChange = (event) => {
     setSeason(event.target.value);
   };
-
   return (
     <div>
       <FormControl>

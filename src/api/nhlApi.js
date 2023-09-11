@@ -35,7 +35,7 @@ export const nhlTeamRetrieval = () => {
 };
 
 // Single Team
-export const singleNhlTeamRetrieval = (id, season = '2022-2023') => {
+export const singleNhlTeamRetrieval = (id, season = '2023-2024') => {
   return axios
     .get(
       `https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.stats&season=${season}`
@@ -80,7 +80,7 @@ export const singleNhlPlayerRetrieval = (id) => {
 
 // Single Player Stats
 // UPDATE ONCE REGULAR SEASON STARTS!!!!!!!!
-export const singlePlayerStatRetrieval = async (id, season = 20222023) => {
+export const singlePlayerStatRetrieval = async (id, season = 20232024) => {
   let playerStats = null;
   let playerInfo = null;
   await axios

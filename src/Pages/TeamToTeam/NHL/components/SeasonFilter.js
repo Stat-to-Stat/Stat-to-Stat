@@ -6,7 +6,7 @@ import { singleSeasonRetrieval } from '../../../../api/nhlApi';
 
 function generateArrayOfYears(currentSeason) {
   const max = currentSeason;
-  const min = max - 24;
+  const min = max - 25;
   const years = [];
 
   for (var i = max; i >= min; i--) {

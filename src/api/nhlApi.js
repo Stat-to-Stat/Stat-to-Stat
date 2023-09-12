@@ -70,6 +70,7 @@ export const singleNhlPlayerRetrieval = (id) => {
     .get(`https://statsapi.web.nhl.com/api/v1/people/${id}?expand=team.roster`)
     .then((res) => {
       const teamRoster = res.data.teams.roster;
+      console.log(teamRoster);
       for (const players of teamRoster) {
         let names = players.roster.person.fullName;
         rosterArr.push(names);
@@ -103,6 +104,10 @@ export const singleSeasonRetrieval = async () => {
     .get('https://statsapi.web.nhl.com/api/v1/schedule')
     .then((res) => {
       return res.data.dates[0].games[0].season;
+    })
+    .catch(() => {
+      let currentDate = new Date();
+      return currentDate.getFullYear().toString();
     });
-  return currentSeason.slice(4);
+  return currentSeason.length === 4 ? currentSeason : currentSeason.slice(4);
 };

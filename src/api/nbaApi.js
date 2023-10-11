@@ -23,7 +23,7 @@ export const nbaTeamsRetrieval = () => {
   let teamArr = [];
   axios.get('https://www.balldontlie.io/api/v1/teams').then((res) => {
     const teams = res.data.data;
-    console.log(res);
+    // console.log(res);
     for (const team of teams) {
       let singleTeam = team;
       teamArr.push(singleTeam);

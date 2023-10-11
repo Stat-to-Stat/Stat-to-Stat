@@ -14,7 +14,7 @@ export default function Title() {
       const teamList = await nbaTeamsRetrieval();
       // console.log(playerStats);
       // console.log(playerInfo);
-      console.log(teamList);
+      // console.log(teamList);
     };
     setStats();
   });

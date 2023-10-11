@@ -58,8 +58,8 @@ export default function TeamStats({ setCurrentTeam, id }) {
         startDate={stats.firstYearOfPlay}
       />
       <img
-        src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${id}.svg`}
-        alt={`Hello`}
+        src={`https://assets.nhle.com/logos/nhl/svg/${stats.abbreviation}_light.svg`}
+        alt={`${stats.abbreviation}`}
         style={{
           width: '170px',
         }}

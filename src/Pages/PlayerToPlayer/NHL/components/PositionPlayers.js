@@ -12,7 +12,7 @@ export default function PositionPlayers({
   const [playerInfo, setPlayerInfo] = useState({});
   const [playerStats, setPlayerStats] = useState({});
   const [loading, setLoading] = useState(false);
-  const [season, setSeason] = useState('2022-2023');
+  const [season, setSeason] = useState('2023-2024');
 
   useEffect(() => {
     const currentSeason = season.replace(/-|\s/g, '');

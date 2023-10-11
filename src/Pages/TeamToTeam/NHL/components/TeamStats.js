@@ -13,6 +13,7 @@ export default function TeamStats({ setCurrentTeam, id }) {
     const currentSeason = season.replace(/-|\s/g, '');
     const setArrays = async () => {
       const teamStats = await singleNhlTeamRetrieval(id, currentSeason);
+      console.log(teamstats.abbreviation)
       setStats(teamStats);
       const seasonStatsHelper = teamStats.teamStats[0].splits[0].stat;
       const seasonRankHelper = teamStats.teamStats[0].splits[1].stat;

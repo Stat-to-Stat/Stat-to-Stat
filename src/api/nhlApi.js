@@ -27,8 +27,7 @@ export const nhlTeamRetrieval = () => {
   axios.get('https://statsapi.web.nhl.com/api/v1/teams').then((res) => {
     const teams = res.data.teams;
     for (const team of teams) {
-      let singleTeam = team;
-      teamArr.push(singleTeam);
+      teamArr.push(team);
     }
   });
   return teamArr;
@@ -70,13 +69,11 @@ export const singleNhlPlayerRetrieval = (id) => {
     .get(`https://statsapi.web.nhl.com/api/v1/people/${id}?expand=team.roster`)
     .then((res) => {
       const teamRoster = res.data.teams.roster;
-      console.log(teamRoster);
       for (const players of teamRoster) {
         let names = players.roster.person.fullName;
         rosterArr.push(names);
       }
     });
-  console.log(rosterArr);
 };
 
 // Single Player Stats

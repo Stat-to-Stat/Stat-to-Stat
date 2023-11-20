@@ -9,8 +9,7 @@ export default function Goalies({
   setCurrentPlayer,
 }) {
   const [stats, setStats] = useState({});
-  const [playerInfo, setPlayerInfo] = useState({});
-  const [playerStats, setPlayerStats] = useState({});
+  const [player, setPlayer] = useState({});
   const [loading, setLoading] = useState(false);
   const [season, setSeason] = useState('2023-2024');
 
@@ -23,13 +22,13 @@ export default function Goalies({
         const playerStatsHelper =
           playerStats.playerStats.data.stats[0].splits[0].stat;
         const playerInfoHelper = playerStats.playerInfo.data.people[0];
-        setPlayerInfo(playerInfoHelper);
-        setPlayerStats(playerStatsHelper);
+        setPlayer(playerInfoHelper);
+        setPlayer(playerStatsHelper);
         setLoading(true);
       } catch (err) {
         setLoading(true);
-        setPlayerInfo({});
-        setPlayerStats({});
+        setPlayer({});
+        setPlayer({});
       }
     };
     setArrays();
@@ -37,18 +36,18 @@ export default function Goalies({
   if (loading) {
     try {
       const tableStats = {
-        'Games Played': playerStats.games,
-        'Games Started': playerStats.gamesStarted,
-        'Goals Against Average': playerStats.goalAgainstAverage.toFixed(2),
-        'Goals Against': playerStats.goalsAgainst,
-        Wins: playerStats.wins,
-        Losses: playerStats.losses,
-        'Overtime Losses': playerStats.ot,
-        'Save Percentage': playerStats.savePercentage,
-        Saves: playerStats.saves,
-        'Shots Against': playerStats.shotsAgainst,
-        'PowerPlay Saves': playerStats.powerPlaySaves,
-        'PowerPlay Shots Against': playerStats.powerPlayShots,
+        'Games Played': player.games,
+        'Games Started': player.gamesStarted,
+        'Goals Against Average': player.goalAgainstAverage.toFixed(2),
+        'Goals Against': player.goalsAgainst,
+        Wins: player.wins,
+        Losses: player.losses,
+        'Overtime Losses': player.ot,
+        'Save Percentage': player.savePercentage,
+        Saves: player.saves,
+        'Shots Against': player.shotsAgainst,
+        'PowerPlay Saves': player.powerPlaySaves,
+        'PowerPlay Shots Against': player.powerPlayShots,
       };
       return (
         <div className='each-player-stats'>
@@ -59,17 +58,17 @@ export default function Goalies({
               alt={`HTTPS issue still persisting`}
             />
           </div>
-          <h3>{playerInfo.fullName}</h3>
-          <h3>{playerInfo.height}</h3>
-          <h3>{playerInfo.weight}lbs</h3>
-          <h3>{playerInfo.primaryPosition.name}</h3>
-          <h3>{playerInfo.currentTeam.name}</h3>
-          <h3>{playerInfo.currentAge} Years Old</h3>
+          <h3>{player.fullName}</h3>
+          <h3>{player.height}</h3>
+          <h3>{player.weight}lbs</h3>
+          <h3>{player.primaryPosition.name}</h3>
+          <h3>{player.currentTeam.name}</h3>
+          <h3>{player.currentAge} Years Old</h3>
           <h3>
-            From: {playerInfo.birthCity},{' '}
-            {playerInfo.birthStateProvince || playerInfo.birthCountry}
+            From: {player.birthCity},{' '}
+            {player.birthStateProvince || player.birthCountry}
           </h3>
-          <h3>Hand: {playerInfo.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
+          <h3>Hand: {player.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
           <div>
             <table className='player-stat-table'>
               <tbody>

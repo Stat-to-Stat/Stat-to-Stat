@@ -9,8 +9,7 @@ export default function PositionPlayers({
   setCurrentPlayer,
 }) {
   const [stats, setStats] = useState({});
-  const [playerInfo, setPlayerInfo] = useState({});
-  const [playerStats, setPlayerStats] = useState({});
+  const [player, setPlayer] = useState({});
   const [loading, setLoading] = useState(false);
   const [season, setSeason] = useState('2023-2024');
 
@@ -22,12 +21,9 @@ export default function PositionPlayers({
       try {
         const playerStatsHelper =
           playerStats.playerStats.data.stats[0].splits[0].stat;
-        const playerInfoHelper = playerStats.playerInfo.data.people[0];
-        setPlayerInfo(playerInfoHelper);
-        setPlayerStats(playerStatsHelper);
+        setPlayer(playerStatsHelper);
       } catch (err) {
-        setPlayerInfo({});
-        setPlayerStats({});
+        setPlayer({});
       }
       setLoading(true);
     };
@@ -37,39 +33,39 @@ export default function PositionPlayers({
   if (loading) {
     try {
       const tableStats = {
-        'Games Played': playerStats.games,
-        Points: playerStats.points,
-        Goals: playerStats.goals,
-        Assists: playerStats.assists,
-        Shots: playerStats.shots,
-        Hits: playerStats.hits,
-        'Blocked Shots': playerStats.blocked,
-        'Penalty Minutes': playerStats.assists,
-        'PowerPlay Goals': playerStats.powerPlayGoals,
-        'PowerPlay Points': playerStats.powerPlayPoints,
-        'Plus/Minus (+/-)': playerStats.plusMinus,
-        'TOI/Per Game': playerStats.timeOnIcePerGame,
+        'Games Played': player.games,
+        Points: player.points,
+        Goals: player.goals,
+        Assists: player.assists,
+        Shots: player.shots,
+        Hits: player.hits,
+        'Blocked Shots': player.blocked,
+        'Penalty Minutes': player.assists,
+        'PowerPlay Goals': player.powerPlayGoals,
+        'PowerPlay Points': player.powerPlayPoints,
+        'Plus/Minus (+/-)': player.plusMinus,
+        'TOI/Per Game': player.timeOnIcePerGame,
       };
       return (
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
-            <img
-              src={`https://cms.nhl.bamgrid.com/images/headshots/current/168x168/${id}@2x.jpg`}
-              alt={`HTTPS issue still persisting`}
-            />
+            <img src={player.headshot} alt={`HTTPS issue still persisting`} />
           </div>
-          <h3>{playerInfo.fullName}</h3>
-          <h3>{playerInfo.height}</h3>
-          <h3>{playerInfo.weight}lbs</h3>
-          <h3>Position: {playerInfo.primaryPosition.name}</h3>
-          <h3>{playerInfo.currentTeam.name}</h3>
-          <h3>{playerInfo.currentAge} Years Old</h3>
           <h3>
-            From: {playerInfo.birthCity},{' '}
-            {playerInfo.birthStateProvince || playerInfo.birthCountry}
+            {player.firstName.default} {player.lastName.default}
           </h3>
-          <h3>Hand: {playerInfo.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
+          <h3>{player.sweaterNumber}</h3>
+          <h3>{player.height}</h3>
+          <h3>{player.weightInPounds}lbs</h3>
+          <h3>Position: {player.position}</h3>
+          <h3>{player.fullTeamName.default}</h3>
+          <h3>{player.currentAge} Years Old</h3>
+          <h3>
+            From: {player.birthCity.default},{' '}
+            {player.birthStateProvince.default || player.birthCountry}
+          </h3>
+          <h3>Hand: {player.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
           <div>
             <table className='player-stat-table'>
               <tbody>

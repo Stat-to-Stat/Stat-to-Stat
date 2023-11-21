@@ -78,15 +78,18 @@ export const singleNhlPlayerRetrieval = (id) => {
 
 // Single Player Stats
 // UPDATE ONCE REGULAR SEASON STARTS!!!!!!!!
-export const singlePlayerStatRetrieval = async (id) => {
-  let playerStats = null;
+export const singlePlayerStatRetrieval = async (
+  id = 8471214,
+  season = 20232024
+) => {
+  let player = null;
   // let playerInfo = null;
   await axios
     .get(`https://api-web.nhle.com/v1/player/${id}/landing`)
     .then((res) => {
-      playerStats = res;
+      player = res;
     });
-  return { playerStats };
+  return { player };
 };
 
 export const singleSeasonRetrieval = async () => {

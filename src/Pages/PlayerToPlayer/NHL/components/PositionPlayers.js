@@ -12,7 +12,6 @@ export default function PositionPlayers({
   const [player, setPlayer] = useState({});
   const [loading, setLoading] = useState(false);
   const [season, setSeason] = useState('2023-2024');
-
   useEffect(() => {
     const currentSeason = season.replace(/-|\s/g, '');
     const setArrays = async () => {
@@ -20,8 +19,9 @@ export default function PositionPlayers({
       setStats(playerStats);
       try {
         const playerStatsHelper =
-          playerStats.playerStats.data.stats[0].splits[0].stat;
+          playerStats.seasonTotals[playerStats.seasonTotals.length - 1].season;
         setPlayer(playerStatsHelper);
+        console.log(player);
       } catch (err) {
         setPlayer({});
       }
@@ -29,7 +29,6 @@ export default function PositionPlayers({
     };
     setArrays();
   }, [season]);
-
   if (loading) {
     try {
       const tableStats = {
@@ -50,13 +49,16 @@ export default function PositionPlayers({
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
-            <img src={player.headshot} alt={`HTTPS issue still persisting`} />
+            <img src={player.headshot} alt={player.heroImage} />
           </div>
           <h3>
             {player.firstName.default} {player.lastName.default}
           </h3>
           <h3>{player.sweaterNumber}</h3>
-          <h3>{player.height}</h3>
+          <h3>
+            {Math.floor(player.heightInInches / 12)}Feet{' '}
+            {player.heightInInches % 12}Inches
+          </h3>
           <h3>{player.weightInPounds}lbs</h3>
           <h3>Position: {player.position}</h3>
           <h3>{player.fullTeamName.default}</h3>

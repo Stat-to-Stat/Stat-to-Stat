@@ -20,15 +20,15 @@ export default function Goalies({
       setStats(playerStats);
       try {
         const playerStatsHelper =
-          playerStats.playerStats.data.stats[0].splits[0].stat;
-        const playerInfoHelper = playerStats.playerInfo.data.people[0];
-        setPlayer(playerInfoHelper);
+          playerStats.seasonTotals[playerStats.seasonTotals.length - 1].season;
+        // const playerInfoHelper = playerStats.playerInfo.data.people[0];
+        // setPlayer(playerInfoHelper);
         setPlayer(playerStatsHelper);
         setLoading(true);
       } catch (err) {
         setLoading(true);
         setPlayer({});
-        setPlayer({});
+        // setPlayer({});
       }
     };
     setArrays();
@@ -36,36 +36,37 @@ export default function Goalies({
   if (loading) {
     try {
       const tableStats = {
-        'Games Played': player.games,
+        'Games Played': player.gamesPlayed,
         'Games Started': player.gamesStarted,
-        'Goals Against Average': player.goalAgainstAverage.toFixed(2),
+        'Goals Against Average': player.goalsAgainstAvg.toFixed(2),
+        'Shots Against': player.shotsAgainst,
         'Goals Against': player.goalsAgainst,
+        Saves: player.shotsAgainst - player.goalsAgainst,
+        'Save Percentage': player.savePctg,
         Wins: player.wins,
         Losses: player.losses,
-        'Overtime Losses': player.ot,
-        'Save Percentage': player.savePercentage,
-        Saves: player.saves,
-        'Shots Against': player.shotsAgainst,
-        'PowerPlay Saves': player.powerPlaySaves,
-        'PowerPlay Shots Against': player.powerPlayShots,
+        'Overtime Losses': player.otLosses,
+        Shutouts: player.shutouts,
+        // 'PowerPlay Saves': player.powerPlaySaves,
+        // 'PowerPlay Shots Against': player.powerPlayShots,
       };
       return (
         <div className='each-player-stats'>
           <SeasonFilter setSeason={setSeason} season={season} />
           <div className='player-picture'>
-            <img
-              src={`https://cms.nhl.bamgrid.com/images/headshots/current/168x168/${id}@2x.jpg`}
-              alt={`HTTPS issue still persisting`}
-            />
+            <img src={player.headshot} alt={player.heroImage} />
           </div>
           <h3>{player.fullName}</h3>
-          <h3>{player.height}</h3>
-          <h3>{player.weight}lbs</h3>
-          <h3>{player.primaryPosition.name}</h3>
-          <h3>{player.currentTeam.name}</h3>
+          <h3>
+            {Math.floor(player.heightInInches / 12)}Feet{' '}
+            {player.heightInInches % 12}Inches
+          </h3>
+          <h3>{player.weightInPounds}lbs</h3>
+          <h3>{player.position}</h3>
+          <h3>{player.fullTeamName.default}</h3>
           <h3>{player.currentAge} Years Old</h3>
           <h3>
-            From: {player.birthCity},{' '}
+            From: {player.birthCity.default},{' '}
             {player.birthStateProvince || player.birthCountry}
           </h3>
           <h3>Hand: {player.shootsCatches === 'R' ? 'Right' : 'Left'}</h3>
